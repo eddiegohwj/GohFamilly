@@ -862,12 +862,14 @@
     <p><strong>Source:</strong> Edwin’s <em>260917_Autumn Japan Itinerary_Draft.xlsx</em> — green tabs <strong>Itinerary</strong> &amp; <strong>New Plan</strong>, plus <strong>Flight &amp; Car</strong> and Tokyo Planning / Goh Siblings WhatsApp facts.</p>
     <p>Gaps marked <span class="tbd">TBD</span>: flight numbers, Tokyo Airbnb street address, some dinners, final 11 Nov hotel, Bounce bag count. Confirm costs with Edwin.</p>
     <p>Weekdays verified for 2026: <strong>Thu 29 Oct</strong> → <strong>Thu 12 Nov</strong>. Prepared for Eddie Goh · Goh family · Oct 2026 MYT.</p>
-    <p><strong>Photo, film, and music credits</strong> are in <a href="japan-itinerary-assets/CREDITS.txt">japan-itinerary-assets/CREDITS.txt</a>. Sound is PeriTune’s “Oboro” (shakuhachi and koto). It stays off until you tap <strong>Enter the trip</strong> or the Sound button.</p>
+    <p><strong>Photo, film, and music credits</strong> are in <a href="japan-itinerary-assets/CREDITS.txt">japan-itinerary-assets/CREDITS.txt</a>. Sound is on unless this phone was muted. <strong>Enter the trip</strong> starts Kevin MacLeod: an opening punch, a brighter mid-trip drive, then a softer neon night.</p>
   </div>
 </footer>
 
-<audio id="score" loop preload="auto" src="japan-itinerary-assets/audio/oboro.mp3"></audio>
-<button class="sound-btn" id="soundBtn" type="button" aria-pressed="false">Sound off</button>
+<audio id="scorePunch" data-score="0" loop preload="auto" src="japan-itinerary-assets/audio/mega-hyper-ultrastorm.mp3"></audio>
+<audio id="scoreDrive" data-score="1" loop preload="auto" src="japan-itinerary-assets/audio/show-your-moves.mp3"></audio>
+<audio id="scoreNight" data-score="2" loop preload="auto" src="japan-itinerary-assets/audio/neon-laser-horizon.mp3"></audio>
+<button class="sound-btn is-on" id="soundBtn" type="button" aria-pressed="true">Sound on</button>
 <button class="scramble" id="scramble" type="button" title="Leia’s scramble: jump between teamLab, Edo Wonderland, Kamikōchi, Chūreito, and the capybara zoo">Scramble</button>
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>

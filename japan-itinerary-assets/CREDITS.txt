@@ -13,13 +13,32 @@ nagano.jpg: Wikimedia Commons — Zenkoji-Nagano.JPG (Zenkō-ji, Nagano)
 
 Film and music (added for the Kōyō Syndrome page). All clips are trimmed, scaled to 960px, and re-encoded. Video files have no audio track. They are background atmosphere only — not a change to the itinerary.
 
-audio/oboro.mp3
-  PeriTune — “Oboro” (shakuhachi and koto), about 4:47.
-  Source: Wikimedia Commons file 【無料フリーBGM】尺八＆琴の切ない和風曲「Oboro」.opus
-  https://commons.wikimedia.org/wiki/File:%E3%80%90%E7%84%A1%E6%96%99%E3%83%95%E3%83%AA%E3%83%BCBGM%E3%80%91%E5%B0%BA%E5%85%AB%EF%BC%86%E7%90%B4%E3%81%AE%E5%88%87%E3%81%AA%E3%81%84%E5%92%8C%E9%A2%A8%E6%9B%B2%E3%80%8COboro%E3%80%8D.opus
-  Also: https://peritune.com/oboro/
-  License: CC BY 3.0 (attribution: PeriTune).
-  Adaptation: transcoded to 96 kbps MP3 with a short fade in and fade out so the loop does not click.
+Music (three original Kevin MacLeod tracks, not anime openings). They crossfade as you scroll: opening, mid-trip, then city night. Each loops. Adapted to 96 kbps MP3 with a short fade in and fade out so the loop does not click.
+
+audio/mega-hyper-ultrastorm.mp3
+  Kevin MacLeod — “Mega Hyper Ultrastorm” (about 3:13, 220 BPM).
+  Synths and drums. Action, bouncy. Plays at the top of the page.
+  https://incompetech.com/music/royalty-free/music.html
+  ISRC USUAN1700003
+  License: CC BY 4.0. https://creativecommons.org/licenses/by/4.0/
+  Music: Mega Hyper Ultrastorm by Kevin MacLeod (incompetech.com)
+  Licensed under Creative Commons: By Attribution 4.0
+
+audio/show-your-moves.mp3
+  Kevin MacLeod — “Show Your Moves” (about 3:35, 136 BPM).
+  Synths and percussion, bright melody over a bass drum. Plays through the middle of the trip.
+  ISRC USUAN1100751
+  License: CC BY 4.0. https://creativecommons.org/licenses/by/4.0/
+  Music: Show Your Moves by Kevin MacLeod (incompetech.com)
+  Licensed under Creative Commons: By Attribution 4.0
+
+audio/neon-laser-horizon.mp3
+  Kevin MacLeod — “Neon Laser Horizon” (about 2:59, 160 BPM).
+  Bright synths, no drum assault. Plays on the last third of the scroll (city night).
+  Album note on the source file: Project 80s. ISRC USUAN2000023
+  License: CC BY 4.0. https://creativecommons.org/licenses/by/4.0/
+  Music: Neon Laser Horizon by Kevin MacLeod (incompetech.com)
+  Licensed under Creative Commons: By Attribution 4.0
 
 video/shibuya.mp4
   Basile Morin — Shibuya Crossing, Tokyo, 7 June 2019.

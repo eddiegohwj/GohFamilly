@@ -2,11 +2,20 @@
   const root = document.documentElement;
   const reduce = root.classList.contains("reduce");
 
-  const score = document.getElementById("score");
   const soundBtn = document.getElementById("soundBtn");
+  const tracks = [
+    document.getElementById("scorePunch"),
+    document.getElementById("scoreDrive"),
+    document.getElementById("scoreNight")
+  ].filter(Boolean);
+  const master = 0.3;
   let soundPref = null;
+  let soundOn = false;
+  let zone = 0;
+  let fadingTo = -1;
+  let fadeHandle = 0;
   try { soundPref = localStorage.getItem("goh-koyo-sound"); } catch (e) {}
-  if (score) score.volume = 0.32;
+  tracks.forEach(function (el) { el.volume = 0; el.loop = true; });
 
   function paintSound(on) {
     if (!soundBtn) return;
@@ -14,20 +23,73 @@
     soundBtn.setAttribute("aria-pressed", on ? "true" : "false");
     soundBtn.textContent = on ? "Sound on" : "Sound off";
   }
-  function setSound(on) {
-    soundPref = on ? "on" : "off";
-    try { localStorage.setItem("goh-koyo-sound", soundPref); } catch (e) {}
-    paintSound(on);
-    if (!score) return;
-    if (on) {
-      const pending = score.play();
-      if (pending && pending.catch) pending.catch(function () { paintSound(false); });
-    } else {
-      score.pause();
-    }
+  function zoneForScroll() {
+    const max = root.scrollHeight - window.innerHeight;
+    const pct = max > 0 ? window.scrollY / max : 0;
+    if (pct < 0.34) return 0;
+    if (pct < 0.68) return 1;
+    return Math.min(2, tracks.length - 1);
   }
-  paintSound(false);
-  if (soundBtn) soundBtn.addEventListener("click", function () { setSound(soundPref !== "on"); });
+  function fadeTo(next) {
+    if (!tracks.length) return;
+    next = Math.max(0, Math.min(tracks.length - 1, next));
+    if (!soundOn) { zone = next; fadingTo = -1; return; }
+    if (fadingTo === next) return;
+    const settled = next === zone && !tracks[next].paused && tracks[next].volume >= master - 0.02
+      && tracks.every(function (el, i) { return i === next || el.paused || el.volume === 0; });
+    if (settled) return;
+    fadingTo = next;
+    zone = next;
+    const incoming = tracks[next];
+    const from = tracks.map(function (el) { return el.volume; });
+    const pending = incoming.play();
+    if (pending && pending.catch) {
+      pending.catch(function () {
+        soundOn = false;
+        fadingTo = -1;
+        paintSound(soundPref !== "off");
+      });
+    }
+    const start = Date.now();
+    if (fadeHandle) clearInterval(fadeHandle);
+    fadeHandle = setInterval(function () {
+      if (!soundOn || fadingTo !== next) { clearInterval(fadeHandle); return; }
+      const t = Math.min(1, (Date.now() - start) / 1100);
+      tracks.forEach(function (el, i) {
+        const goal = i === next ? master : 0;
+        el.volume = from[i] + (goal - from[i]) * t;
+      });
+      if (t < 1) return;
+      clearInterval(fadeHandle);
+      tracks.forEach(function (el, i) {
+        if (i !== next) { el.pause(); el.volume = 0; }
+      });
+      incoming.volume = master;
+      if (fadingTo === next) fadingTo = -1;
+    }, 40);
+  }
+  function setSound(on) {
+    soundOn = !!on;
+    soundPref = soundOn ? "on" : "off";
+    try { localStorage.setItem("goh-koyo-sound", soundPref); } catch (e) {}
+    paintSound(soundOn);
+    if (!soundOn) {
+      if (fadeHandle) clearInterval(fadeHandle);
+      fadingTo = -1;
+      tracks.forEach(function (el) { el.pause(); el.volume = 0; });
+      return;
+    }
+    fadeTo(zoneForScroll());
+  }
+  function wantsSound() { return soundPref !== "off"; }
+  paintSound(wantsSound());
+  if (soundBtn) {
+    soundBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      if (!soundOn && wantsSound()) setSound(true);
+      else setSound(!soundOn);
+    });
+  }
 
   const intro = document.getElementById("intro");
   function dismissIntro() {
@@ -47,19 +109,27 @@
     }
     intro.addEventListener("click", function (e) {
       if (e.target.closest && e.target.closest("#enterTrip")) return;
+      if (wantsSound()) setSound(true);
       dismissIntro();
     });
-    window.setTimeout(dismissIntro, 2200);
     document.addEventListener("keydown", function (e) {
       if (!intro || intro.dataset.done) return;
-      if (e.key === "Escape") dismissIntro();
-      if (e.key === "Enter") {
-        if (soundPref !== "off") setSound(true);
-        dismissIntro();
-      }
+      if (e.key !== "Escape" && e.key !== "Enter") return;
+      if (wantsSound()) setSound(true);
+      dismissIntro();
     });
   } else if (intro) {
     intro.remove();
+    if (wantsSound()) {
+      const startOnGesture = function (e) {
+        if (e.target && e.target.closest && e.target.closest("#soundBtn")) return;
+        document.removeEventListener("pointerdown", startOnGesture, true);
+        document.removeEventListener("keydown", startOnGesture, true);
+        if (wantsSound() && !soundOn) setSound(true);
+      };
+      document.addEventListener("pointerdown", startOnGesture, true);
+      document.addEventListener("keydown", startOnGesture, true);
+    }
   }
 
   document.querySelectorAll("video").forEach(function (v) {
@@ -149,6 +219,7 @@
   let lastCurrent = null;
 
   function onScroll() {
+    if (soundOn) fadeTo(zoneForScroll());
     const max = root.scrollHeight - window.innerHeight;
     const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
     if (fill) fill.style.width = Math.min(100, Math.max(0, pct)) + "%";
