@@ -11,9 +11,9 @@ maple.jpg: Wikimedia Commons — Momiji (Japanese maple) leaves in Ryoan-ji, Kyo
 togakushi.jpg: Wikimedia Commons — Togakushi Shrine Okusha Oo-Torii.jpg (Togakushi Shrine)
 nagano.jpg: Wikimedia Commons — Zenkoji-Nagano.JPG (Zenkō-ji, Nagano)
 
-Film and music (added for the Kōyō Syndrome page). All clips are trimmed, scaled to 960px, and re-encoded. Video files have no audio track. They are background atmosphere only — not a change to the itinerary.
+Film and music (added for 相亲相爱一家人). All clips are trimmed, scaled to 960px, and re-encoded. Video files have no audio track. They are background atmosphere only — not a change to the itinerary.
 
-Music (three Kevin MacLeod tracks, CC BY 4.0). Soft, playful, warm family-trip music — ukulele, glockenspiel, marimba, music box — not the earlier hyper/neon set (Mega Hyper Ultrastorm, Show Your Moves, Neon Laser Horizon), which is no longer used. They crossfade as you scroll: opening, mid-trip, then a softer last third. Each loops. Adapted to 96 kbps MP3 with a short fade in and fade out so the loop does not click.
+Music (three Kevin MacLeod tracks, CC BY 4.0). Warm, wholesome family music — ukulele, piano, guitar, and soft strings — not the earlier hyper/neon set (Mega Hyper Ultrastorm, Show Your Moves, Neon Laser Horizon) and not the quirky Daily Beetle cue, which are no longer used. They crossfade as you scroll: opening, mid-trip, then a softer last third. Each loops. Adapted to 96 kbps MP3 with a short fade in and fade out so the loop does not click.
 
 Sound defaults on. The preference is stored as localStorage key goh-koyo-sound-v2. A missing key means Sound on; the older key goh-koyo-sound is ignored so a previous mute does not stick. Browsers still require one user gesture before audio can play. That gesture is Enter the trip (or Enter, or the Sound button). The title card stays up until that tap. The button reads “Sound on” on a first visit. Only an explicit Sound off writes a mute.
 
@@ -26,12 +26,12 @@ audio/carefree.mp3
   Music: Carefree by Kevin MacLeod (incompetech.com)
   Licensed under Creative Commons: By Attribution 4.0
 
-audio/daily-beetle.mp3
-  Kevin MacLeod — “Daily Beetle” (about 5:17, 100 BPM), featuring Brett VanDonsel.
-  Ukulele, guitar, marimba, music box, toy piano, drums. Light cute BGM through the middle of the trip.
-  ISRC USUAN1500025
+audio/autumn-day.mp3
+  Kevin MacLeod — “Autumn Day” (about 3:05, 126 BPM).
+  Guitar, bass, piano, strings, simplified percussion. Calm and comforting. Plays through the middle of the trip.
+  ISRC USUAN1100765
   License: CC BY 4.0. https://creativecommons.org/licenses/by/4.0/
-  Music: Daily Beetle by Kevin MacLeod (incompetech.com)
+  Music: Autumn Day by Kevin MacLeod (incompetech.com)
   Licensed under Creative Commons: By Attribution 4.0
 
 audio/life-of-riley.mp3
