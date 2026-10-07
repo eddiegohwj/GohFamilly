@@ -10,3 +10,45 @@ izu.jpg: Wikimedia Commons — Jōgasaki Coast 01.jpg (Jōgasaki Coast, Izu)
 maple.jpg: Wikimedia Commons — Momiji (Japanese maple) leaves in Ryoan-ji, Kyoto (3256663267).jpg (Japanese maple)
 togakushi.jpg: Wikimedia Commons — Togakushi Shrine Okusha Oo-Torii.jpg (Togakushi Shrine)
 nagano.jpg: Wikimedia Commons — Zenkoji-Nagano.JPG (Zenkō-ji, Nagano)
+
+Film and music (added for the Kōyō Syndrome page). All clips are trimmed, scaled to 960px, and re-encoded. Video files have no audio track. They are background atmosphere only — not a change to the itinerary.
+
+audio/oboro.mp3
+  PeriTune — “Oboro” (shakuhachi and koto), about 4:47.
+  Source: Wikimedia Commons file 【無料フリーBGM】尺八＆琴の切ない和風曲「Oboro」.opus
+  https://commons.wikimedia.org/wiki/File:%E3%80%90%E7%84%A1%E6%96%99%E3%83%95%E3%83%AA%E3%83%BCBGM%E3%80%91%E5%B0%BA%E5%85%AB%EF%BC%86%E7%90%B4%E3%81%AE%E5%88%87%E3%81%AA%E3%81%84%E5%92%8C%E9%A2%A8%E6%9B%B2%E3%80%8COboro%E3%80%8D.opus
+  Also: https://peritune.com/oboro/
+  License: CC BY 3.0 (attribution: PeriTune).
+  Adaptation: transcoded to 96 kbps MP3 with a short fade in and fade out so the loop does not click.
+
+video/shibuya.mp4
+  Basile Morin — Shibuya Crossing, Tokyo, 7 June 2019.
+  Source: https://commons.wikimedia.org/wiki/File:Shibuya_Crossing,_Tokyo,_Japan_(video).webm
+  License: CC BY-SA 4.0.
+  Adaptation: about 1s–11s, 960×540, H.264, no audio. This derivative is CC BY-SA 4.0.
+
+video/maple.mp4
+  Nesnad — autumn leaves falling in Isehara, Kanagawa (Ōyama), 5 December 2022. iPhone 6s.
+  Source: https://commons.wikimedia.org/wiki/File:Autumnleavesfalling-kanagawa-2022Dec5.webm
+  License: CC BY-SA 4.0.
+  Adaptation: opening ~10s, 960×540, H.264, no audio. This derivative is CC BY-SA 4.0.
+
+video/autumn-ridge.mp4
+  PLAGE-TV — Hakkaisan Ropeway and autumn leaves, Muikamachi Hakkaisan Ski Resort, Niigata, 29 October 2014.
+  Source: https://commons.wikimedia.org/wiki/File:Hakkaisan_Ropeway_and_autumn_leaves_at_Muikamachi_Hakkaisan_Ski_Resort,_Japan.webm
+  Original YouTube title: 八海山スキー場紅葉
+  License: CC BY 3.0 (YouTube Creative Commons, reviewed on Commons 12 July 2017).
+  Adaptation: opening ~8s (aerial autumn ridge), 960×540, H.264, no audio.
+
+video/fuji.mp4
+  Nesnad — Mount Fuji from a train window, January 2014 (later portion of a clip that also shows the mountain from an airplane).
+  Source: https://commons.wikimedia.org/wiki/File:Fujisan-video-views-airplane-bullet-train2014.ogv
+  License: CC BY-SA 3.0. Cite as Nesnad / Wikimedia Commons.
+  Adaptation: about 22s–30s, 960×540, H.264, no audio. This derivative is CC BY-SA 3.0.
+  The Goh family route uses rental cars. This clip is scenery behind the Fuji days, not a scheduled train ride.
+
+Izu stays on the Jōgasaki still. No coastal clip was added.
+
+family/
+  Placeholder discs (initials) until a real photo is dropped in as family/<name>.jpg
+  (edwin, pf, eva, ethan, eddie, bee, jinee, yan-yan, mum, leia, terence, papa, jin, wei-lih).
