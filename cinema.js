@@ -21,6 +21,24 @@
 
   const topbar = document.getElementById("topbar");
   const fill = document.getElementById("progressFill");
+  if (nav) {
+    nav.addEventListener("click", function (e) {
+      const a = e.target.closest("a[href^='#']");
+      if (!a) return;
+      const id = a.getAttribute("href");
+      const el = document.querySelector(id);
+      if (!el) return;
+      e.preventDefault();
+      const behavior = reduce ? "auto" : "smooth";
+      if (id === "#top") {
+        window.scrollTo({ top: 0, behavior: behavior });
+        return;
+      }
+      const offset = (topbar ? topbar.offsetHeight : 64) + 28;
+      const top = window.scrollY + el.getBoundingClientRect().top - offset;
+      window.scrollTo({ top: Math.max(0, top), behavior: behavior });
+    });
+  }
   const nav = document.getElementById("tocNav");
   const links = Array.prototype.slice.call(document.querySelectorAll("#tocNav a"));
   const days = Array.prototype.slice.call(document.querySelectorAll(".day"));
