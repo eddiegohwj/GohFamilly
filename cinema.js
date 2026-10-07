@@ -12,6 +12,7 @@
   let soundPref = null;
   let soundOn = false;
   let zone = 0;
+  let fadingTo = -1;
   let fadeHandle = 0;
   try { soundPref = localStorage.getItem("goh-koyo-sound"); } catch (e) {}
   tracks.forEach(function (el) { el.volume = 0; el.loop = true; });
@@ -32,31 +33,40 @@
   function fadeTo(next) {
     if (!tracks.length) return;
     next = Math.max(0, Math.min(tracks.length - 1, next));
-    if (!soundOn) { zone = next; return; }
-    if (next === zone && !tracks[next].paused) return;
-    const outgoing = tracks[zone];
+    if (!soundOn) { zone = next; fadingTo = -1; return; }
+    if (fadingTo === next) return;
+    const settled = next === zone && !tracks[next].paused && tracks[next].volume >= master - 0.02
+      && tracks.every(function (el, i) { return i === next || el.paused || el.volume === 0; });
+    if (settled) return;
+    fadingTo = next;
     zone = next;
     const incoming = tracks[next];
+    const from = tracks.map(function (el) { return el.volume; });
     const pending = incoming.play();
     if (pending && pending.catch) {
       pending.catch(function () {
         soundOn = false;
+        fadingTo = -1;
         paintSound(false);
       });
     }
-    const start = performance.now();
-    if (fadeHandle) cancelAnimationFrame(fadeHandle);
-    function step(now) {
-      const t = Math.min(1, (now - start) / 1100);
-      if (soundOn) incoming.volume = master * t;
-      if (outgoing && outgoing !== incoming) outgoing.volume = master * (1 - t);
-      if (t < 1 && soundOn) fadeHandle = requestAnimationFrame(step);
-      else if (outgoing && outgoing !== incoming) {
-        outgoing.pause();
-        outgoing.volume = 0;
-      }
-    }
-    fadeHandle = requestAnimationFrame(step);
+    const start = Date.now();
+    if (fadeHandle) clearInterval(fadeHandle);
+    fadeHandle = setInterval(function () {
+      if (!soundOn || fadingTo !== next) { clearInterval(fadeHandle); return; }
+      const t = Math.min(1, (Date.now() - start) / 1100);
+      tracks.forEach(function (el, i) {
+        const goal = i === next ? master : 0;
+        el.volume = from[i] + (goal - from[i]) * t;
+      });
+      if (t < 1) return;
+      clearInterval(fadeHandle);
+      tracks.forEach(function (el, i) {
+        if (i !== next) { el.pause(); el.volume = 0; }
+      });
+      incoming.volume = master;
+      if (fadingTo === next) fadingTo = -1;
+    }, 40);
   }
   function setSound(on) {
     soundOn = !!on;
@@ -64,7 +74,8 @@
     try { localStorage.setItem("goh-koyo-sound", soundPref); } catch (e) {}
     paintSound(soundOn);
     if (!soundOn) {
-      if (fadeHandle) cancelAnimationFrame(fadeHandle);
+      if (fadeHandle) clearInterval(fadeHandle);
+      fadingTo = -1;
       tracks.forEach(function (el) { el.pause(); el.volume = 0; });
       return;
     }
