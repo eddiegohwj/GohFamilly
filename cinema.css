@@ -891,6 +891,40 @@ body.glitch::after {
 .family-card .avatar { width: 4.4rem; height: 4.4rem; margin: 0 auto .4rem; font-size: 1.6rem; }
 .family-card p { margin: 0; font-size: .92rem; }
 .family-note { color: var(--muted); max-width: 46rem; }
+.family-moments {
+  display: flex;
+  gap: .9rem;
+  align-items: flex-start;
+  overflow-x: auto;
+  margin: .2rem 0 1.3rem;
+  padding-bottom: .35rem;
+  scrollbar-width: thin;
+}
+.family-moments figure { margin: 0; flex: 0 0 auto; }
+.family-moments img {
+  display: block;
+  height: min(22rem, 58vh);
+  width: auto;
+  max-width: 78vw;
+  border: 1px solid var(--line);
+}
+.family-moments figcaption {
+  margin-top: .35rem;
+  font-weight: 650;
+  font-size: .95rem;
+}
+.family-moments figcaption span {
+  display: block;
+  font-weight: 450;
+  color: var(--muted);
+  font-size: .82rem;
+}
+@media (max-width: 700px) {
+  .family-moments img { height: min(17.5rem, 48vh); }
+}
+.avatar img.shot-face { object-position: center 12%; }
+.avatar img.shot-dog { object-position: center 42%; }
+.avatar img.shot-baby { object-position: center 36%; }
 @media (max-width: 640px) {
   .todo-list label { grid-template-columns: auto 1fr; }
   .pic { grid-column: 2; min-width: 0; }
