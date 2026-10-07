@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>🍁 Goh Family · Autumn Japan · 29 Oct – 12 Nov 2026</title>
+<style>
+:root {
+  --cream: #faf6f0;
+  --cream2: #f3ebe0;
+  --ink: #2c2118;
+  --muted: #6b5a4a;
+  --orange: #d4763a;
+  --orange-deep: #b85a28;
+  --red: #8b3a2a;
+  --maple: #c45c3a;
+  --gold: #c9a064;
+  --leaf: #5a7a4a;
+  --card: #fffdf9;
+  --line: #e8d9c8;
+  --soft: #fff4e8;
+  --sky: #5b7fc7;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif;
+  background:
+    radial-gradient(ellipse at 10% 0%, rgba(212,118,58,.12), transparent 40%),
+    radial-gradient(ellipse at 90% 20%, rgba(139,58,42,.08), transparent 45%),
+    linear-gradient(180deg, #f7efe4 0%, var(--cream) 25%, #f5ede3 100%);
+  color: var(--ink);
+  line-height: 1.55;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+.wrap { max-width: 960px; margin: 0 auto; padding: 1.25rem 1rem 4rem; }
+
+/* ===== Sticky progress + jump nav ===== */
+.sticky-bar {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255,253,249,.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+  margin: 0 -1rem 1.25rem;
+  padding: .55rem 1rem .65rem;
+  box-shadow: 0 4px 20px rgba(80,40,20,.06);
+  transform: translateY(-120%);
+  transition: transform .4s cubic-bezier(.2,.8,.2,1);
+}
+.sticky-bar.show { transform: translateY(0); }
+.progress-track {
+  height: 5px; border-radius: 999px;
+  background: var(--cream2);
+  overflow: hidden; margin-bottom: .5rem;
+}
+.progress-fill {
+  height: 100%; width: 0%;
+  background: linear-gradient(90deg, var(--maple), var(--gold), var(--orange));
+  border-radius: 999px;
+  transition: width .15s linear;
+  box-shadow: 0 0 12px rgba(212,118,58,.5);
+}
+.toc-nav {
+  display: flex; flex-wrap: nowrap; gap: .4rem;
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+  padding-bottom: .15rem; scrollbar-width: thin;
+}
+.toc-nav a {
+  flex: 0 0 auto;
+  text-decoration: none;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: .35rem .6rem;
+  border-radius: 999px;
+  font-size: .72rem;
+  font-weight: 700;
+  transition: transform .2s, background .2s, border-color .2s, box-shadow .2s;
+  white-space: nowrap;
+}
+.toc-nav a:hover, .toc-nav a.active {
+  background: linear-gradient(135deg, #fff4e8, #ffe8d4);
+  border-color: var(--orange);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 4px 12px rgba(212,118,58,.2);
+}
+
+/* ===== Cover ===== */
+.cover {
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  padding: 2.75rem 1.75rem 2.25rem;
+  background:
+    linear-gradient(145deg, rgba(60,20,15,.55), rgba(140,50,30,.35)),
+    url("japan-itinerary-assets/maple.jpg") center/cover;
+  color: #fffaf4;
+  box-shadow: 0 20px 50px rgba(80,40,20,.28);
+  margin-bottom: 1.75rem;
+  isolation: isolate;
+}
+.cover::before {
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(212,118,58,.45), transparent 50%),
+    radial-gradient(ellipse at 80% 10%, rgba(201,160,100,.35), transparent 45%),
+    linear-gradient(160deg, rgba(60,18,12,.75) 0%, rgba(140,55,30,.55) 55%, rgba(180,100,40,.4) 100%);
+  z-index: 0;
+}
+.cover > * { position: relative; z-index: 2; }
+.cover-kicker {
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  font-size: .72rem;
+  opacity: .9;
+  font-weight: 700;
+  margin: 0 0 .55rem;
+  animation: kickIn .8s .1s both;
+}
+.cover h1 {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -.03em;
+  line-height: 1.1;
+  text-shadow: 0 4px 24px rgba(0,0,0,.35);
+  animation: titlePop .9s .2s cubic-bezier(.2,1.2,.4,1) both;
+}
+.cover .dates {
+  margin: .85rem 0 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  opacity: .98;
+  animation: kickIn .8s .35s both;
+}
+.cover .sub {
+  margin: .9rem 0 0;
+  font-size: .95rem;
+  opacity: .9;
+  max-width: 38em;
+  animation: kickIn .8s .45s both;
+}
+.leaves-chips {
+  display: flex; gap: .45rem; margin-top: 1.35rem; flex-wrap: wrap;
+  animation: kickIn .8s .55s both;
+}
+.chip {
+  display: inline-flex; align-items: center; gap: .35rem;
+  background: rgba(255,255,255,.2);
+  border: 1px solid rgba(255,255,255,.35);
+  backdrop-filter: blur(8px);
+  padding: .4rem .75rem;
+  border-radius: 999px;
+  font-size: .78rem;
+  font-weight: 700;
+  transition: transform .25s;
+}
+.chip:hover { transform: scale(1.08) rotate(-2deg); }
+
+/* Floating maple leaves */
+.leaf-field { position: absolute; inset: 0; pointer-events: none; z-index: 1; overflow: hidden; }
+.maple-leaf {
+  position: absolute;
+  top: -10%;
+  font-size: 1.4rem;
+  opacity: .75;
+  animation: fall linear infinite;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.25));
+  will-change: transform;
+}
+.maple-leaf:nth-child(1) { left: 8%; animation-duration: 9s; animation-delay: 0s; font-size: 1.1rem; }
+.maple-leaf:nth-child(2) { left: 22%; animation-duration: 12s; animation-delay: -2s; font-size: 1.6rem; }
+.maple-leaf:nth-child(3) { left: 38%; animation-duration: 10s; animation-delay: -5s; }
+.maple-leaf:nth-child(4) { left: 55%; animation-duration: 14s; animation-delay: -1s; font-size: 1.25rem; }
+.maple-leaf:nth-child(5) { left: 70%; animation-duration: 11s; animation-delay: -7s; font-size: 1.8rem; }
+.maple-leaf:nth-child(6) { left: 85%; animation-duration: 13s; animation-delay: -3s; }
+.maple-leaf:nth-child(7) { left: 45%; animation-duration: 8s; animation-delay: -4s; font-size: .95rem; }
+.maple-leaf:nth-child(8) { left: 15%; animation-duration: 15s; animation-delay: -8s; font-size: 1.5rem; }
+
+@keyframes fall {
+  0%   { transform: translateY(-10vh) rotate(0deg) translateX(0); opacity: 0; }
+  10%  { opacity: .85; }
+  50%  { transform: translateY(45vh) rotate(180deg) translateX(30px); }
+  100% { transform: translateY(110vh) rotate(360deg) translateX(-20px); opacity: 0; }
+}
+@keyframes titlePop {
+  from { opacity: 0; transform: scale(.85) translateY(20px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes kickIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes wiggle {
+  0%,100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+@keyframes bounceIn {
+  0% { opacity: 0; transform: translateY(40px) scale(.92); }
+  60% { transform: translateY(-8px) scale(1.02); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes slideLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes sparkle {
+  0%,100% { transform: scale(1) rotate(0); }
+  50% { transform: scale(1.15) rotate(8deg); }
+}
+@keyframes confettiPop {
+  0% { transform: translateY(0) scale(0); opacity: 0; }
+  30% { opacity: 1; transform: translateY(-20px) scale(1.2); }
+  100% { transform: translateY(-60px) scale(.6); opacity: 0; }
+}
+
+/* Confetti dots on cover */
+.confetti {
+  position: absolute; width: 8px; height: 8px; border-radius: 2px;
+  z-index: 1; pointer-events: none;
+  animation: confettiPop 2.5s ease-out infinite;
+}
+.confetti:nth-child(1) { top: 20%; left: 12%; background: #ffd26a; animation-delay: 0s; }
+.confetti:nth-child(2) { top: 35%; left: 88%; background: #ff8a5c; animation-delay: .7s; border-radius: 50%; }
+.confetti:nth-child(3) { top: 60%; left: 18%; background: #fff; animation-delay: 1.2s; }
+.confetti:nth-child(4) { top: 25%; left: 70%; background: #f0c040; animation-delay: 1.8s; width: 6px; height: 10px; }
+.confetti:nth-child(5) { top: 70%; left: 80%; background: #ff6b4a; animation-delay: .4s; }
+
+/* Reveal system */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px) scale(.97);
+  transition: opacity .7s cubic-bezier(.2,.8,.2,1), transform .7s cubic-bezier(.2,.8,.2,1);
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+.reveal.delay-1 { transition-delay: .08s; }
+.reveal.delay-2 { transition-delay: .16s; }
+.reveal.delay-3 { transition-delay: .24s; }
+
+/* Quick ref */
+.quick {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+@media (min-width: 720px) {
+  .quick { grid-template-columns: 1fr 1fr; }
+  .quick .span2 { grid-column: 1 / -1; }
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 1.2rem 1.25rem;
+  box-shadow: 0 6px 18px rgba(80,50,20,.06);
+  transition: transform .3s, box-shadow .3s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(80,50,20,.12);
+}
+.card h2 {
+  margin: 0 0 .75rem;
+  font-size: 1.05rem;
+  color: var(--red);
+  letter-spacing: .02em;
+  display: flex; align-items: center; gap: .45rem;
+}
+.card h2 .dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--orange);
+  display: inline-block;
+  box-shadow: 0 0 0 4px rgba(212,118,58,.2);
+  animation: sparkle 2.5s ease-in-out infinite;
+}
+.card ul { margin: 0; padding-left: 1.15rem; }
+.card li { margin: .35rem 0; }
+.card .muted { color: var(--muted); font-size: .9rem; }
+.car-grid { display: grid; gap: .65rem; }
+.car {
+  background: var(--soft);
+  border-left: 4px solid var(--orange);
+  border-radius: 12px;
+  padding: .7rem .85rem;
+  transition: transform .25s;
+}
+.car:hover { transform: translateX(6px); }
+.car strong { display: block; color: var(--orange-deep); font-size: .88rem; margin-bottom: .15rem; }
+.car span { font-size: .9rem; }
+
+/* Section title */
+.section-title {
+  font-size: 1.35rem;
+  color: var(--red);
+  margin: 0 0 1.1rem;
+  letter-spacing: .02em;
+  display: flex; align-items: center; gap: .5rem;
+}
+.section-title .bounce-emoji {
+  display: inline-block;
+  animation: wiggle 1.5s ease-in-out infinite;
+}
+
+/* Day cards */
+.day {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  margin-bottom: 1.35rem;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(80,50,20,.07);
+  transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s;
+  opacity: 0;
+  transform: translateY(48px) rotate(-0.5deg);
+}
+.day.in {
+  opacity: 1;
+  transform: none;
+  animation: bounceIn .75s cubic-bezier(.2,1.1,.4,1) both;
+}
+.day:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 18px 40px rgba(80,50,20,.14);
+}
+.day-photo {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+  background: var(--cream2);
+}
+.day-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .6s cubic-bezier(.2,.8,.2,1);
+  display: block;
+}
+.day:hover .day-photo img { transform: scale(1.08); }
+.day-photo .photo-cap {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: .55rem .9rem;
+  background: linear-gradient(transparent, rgba(30,15,10,.72));
+  color: #fff;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+}
+.day-head {
+  display: flex; flex-wrap: wrap; align-items: flex-start; gap: .75rem 1rem;
+  padding: 1.15rem 1.3rem;
+  background: linear-gradient(90deg, #fff8f0, #fffdf9 60%);
+  border-bottom: 1px solid var(--line);
+}
+.day-num {
+  flex: 0 0 auto;
+  width: 3.4rem; height: 3.4rem;
+  border-radius: 16px;
+  background: linear-gradient(145deg, var(--maple), var(--red));
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 1.1rem;
+  box-shadow: 0 6px 14px rgba(139,58,42,.3);
+  transition: transform .3s;
+}
+.day:hover .day-num { transform: rotate(-8deg) scale(1.08); }
+.day-meta { flex: 1; min-width: 0; }
+.day-meta .when {
+  font-size: .88rem; color: var(--muted); font-weight: 700; letter-spacing: .03em;
+}
+.day-meta h3 {
+  margin: .2rem 0 0; font-size: 1.28rem; line-height: 1.25;
+}
+.badge {
+  display: inline-block;
+  margin-top: .45rem;
+  font-size: .72rem; font-weight: 800;
+  padding: .28rem .6rem;
+  border-radius: 999px;
+  background: #f0e4d4;
+  color: var(--red);
+  letter-spacing: .04em;
+}
+.day-body { padding: 1.05rem 1.3rem 1.3rem; }
+.callout {
+  display: flex; flex-wrap: wrap; gap: .5rem;
+  margin-bottom: .9rem;
+}
+.pill {
+  font-size: .8rem;
+  background: var(--cream2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: .4rem .65rem;
+  color: var(--muted);
+}
+.pill strong { color: var(--ink); }
+.pill.stay { border-color: #d4c4a8; background: #fff7eb; }
+.pill.drive { border-color: #c8d4b8; background: #f3f7ee; }
+.timeline { list-style: none; margin: 0; padding: 0; }
+.timeline li {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: .65rem;
+  padding: .6rem 0;
+  border-bottom: 1px dashed var(--line);
+  transition: background .2s, padding-left .2s;
+  border-radius: 8px;
+}
+.timeline li:hover {
+  background: var(--soft);
+  padding-left: .4rem;
+}
+.timeline li:last-child { border-bottom: none; }
+.time {
+  font-weight: 800;
+  font-size: .82rem;
+  color: var(--orange-deep);
+  padding-top: .1rem;
+}
+.act .title { font-weight: 600; }
+.act .note {
+  display: block;
+  font-size: .85rem;
+  color: var(--muted);
+  margin-top: .15rem;
+}
+.wa {
+  margin-top: .9rem;
+  padding: .75rem .9rem;
+  background: #f0f5ff;
+  border-left: 4px solid var(--sky);
+  border-radius: 0 12px 12px 0;
+  font-size: .88rem;
+  color: #334;
+}
+.tbd {
+  display: inline-block;
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+  color: #8a5a10;
+  background: #ffe9b8;
+  padding: .15rem .4rem;
+  border-radius: 5px;
+  vertical-align: middle;
+  margin-left: .25rem;
+}
+
+/* next day bounce link */
+.next-day {
+  display: inline-flex; align-items: center; gap: .4rem;
+  margin-top: 1rem;
+  font-weight: 700;
+  font-size: .88rem;
+  color: var(--orange-deep);
+  text-decoration: none;
+  padding: .45rem .8rem;
+  border-radius: 999px;
+  background: var(--soft);
+  border: 1px solid var(--line);
+  transition: transform .25s, background .25s;
+}
+.next-day:hover {
+  transform: translateY(-3px);
+  background: #ffe8d4;
+  animation: wiggle .4s ease;
+}
+.next-day .arrow {
+  display: inline-block;
+  animation: bounceArrow 1.2s ease-in-out infinite;
+}
+@keyframes bounceArrow {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+
+/* Lodging */
+.lodge-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .9rem;
+}
+.lodge-table th, .lodge-table td {
+  text-align: left;
+  padding: .55rem .4rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+.lodge-table th { color: var(--muted); font-size: .75rem; text-transform: uppercase; letter-spacing: .06em; }
+.status-ok { color: var(--leaf); font-weight: 700; }
+.status-warn { color: #9a6b10; font-weight: 700; }
+
+.reminders { display: grid; gap: .5rem; }
+.rem {
+  display: flex; gap: .65rem; align-items: flex-start;
+  padding: .6rem .7rem;
+  background: var(--soft);
+  border-radius: 12px;
+  font-size: .9rem;
+  transition: transform .25s;
+}
+.rem:hover { transform: scale(1.02); }
+.rem .ico { font-size: 1.2rem; line-height: 1; }
+
+/* Route strip */
+.route-strip {
+  display: flex; flex-wrap: wrap; gap: .35rem; align-items: center;
+  margin: 0 0 1.5rem;
+  padding: .85rem 1rem;
+  background: linear-gradient(90deg, #fff8f0, #fff);
+  border: 1px dashed var(--gold);
+  border-radius: 16px;
+  font-size: .85rem;
+  font-weight: 700;
+  color: var(--red);
+}
+.route-strip span { opacity: .5; font-weight: 400; }
+
+footer {
+  margin-top: 2.5rem;
+  padding: 1.5rem 1.25rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: .82rem;
+  text-align: center;
+  background: rgba(255,253,249,.6);
+  border-radius: 16px;
+}
+footer strong { color: var(--ink); }
+.credits {
+  margin-top: .85rem;
+  font-size: .75rem;
+  line-height: 1.45;
+  opacity: .85;
+}
+
+/* Fun floating FAB */
+.fun-fab {
+  position: fixed; bottom: 1.25rem; right: 1.25rem; z-index: 60;
+  width: 3.2rem; height: 3.2rem;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(145deg, var(--maple), var(--red));
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(139,58,42,.4);
+  transition: transform .25s;
+}
+.fun-fab:hover { transform: scale(1.12) rotate(-12deg); }
+.fun-fab:active { transform: scale(.95); }
+
+@media print {
+  body { background: #fff; font-size: 11pt; }
+  .wrap { max-width: none; padding: 0; }
+  .cover { box-shadow: none; }
+  .day { box-shadow: none; opacity: 1 !important; transform: none !important; animation: none !important; }
+  .sticky-bar, .fun-fab, .leaf-field, .confetti, .next-day { display: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .day-photo { height: 120px; }
+}
+
+@media (max-width: 520px) {
+  .timeline li { grid-template-columns: 1fr; gap: .15rem; }
+  .day-photo { height: 140px; }
+  .cover { padding: 2rem 1.2rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal, .day { opacity: 1; transform: none; }
+  .sticky-bar { transform: none; }
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="cover" id="top">
+  <div class="leaf-field" aria-hidden="true">
+    <span class="maple-leaf">🍁</span>
+    <span class="maple-leaf">🍂</span>
+    <span class="maple-leaf">🍁</span>
+    <span class="maple-leaf">🍂</span>
+    <span class="maple-leaf">🍁</span>
+    <span class="maple-leaf">🍃</span>
+    <span class="maple-leaf">🍁</span>
+    <span class="maple-leaf">🍂</span>
+    <span class="confetti"></span>
+    <span class="confetti"></span>
+    <span class="confetti"></span>
+    <span class="confetti"></span>
+    <span class="confetti"></span>
+  </div>
+  <p class="cover-kicker">Goh siblings · family adventure</p>
+  <h1>🍁 Goh Family · Autumn Japan</h1>
+  <p class="dates">Thu 29 Oct – Thu 12 Nov 2026 · 15 days of fun</p>
+  <p class="sub">Tokyo → Nikko → Nagano → Matsumoto / Kamikōchi → Lake Kawaguchi → Izu → Tokyo. Built from Edwin’s itinerary workbook (green tabs) + Tokyo Planning chat — with weekdays, place photos, and scroll surprises for Leia (and still clear for Papa &amp; Mama).</p>
+  <div class="leaves-chips">
+    <span class="chip">🍁 Autumn foliage</span>
+    <span class="chip">🚗 3 cars · 1–11 Nov</span>
+    <span class="chip">🏠 Airbnbs + ryokan</span>
+    <span class="chip">🗻 Mt Fuji days</span>
+    <span class="chip">✨ Scroll for surprises</span>
+  </div>
+</header>
+
+<nav class="sticky-bar" id="stickyBar" aria-label="Trip progress">
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  <div class="toc-nav" id="tocNav">
+    <a href="#day1">D1 Thu 29</a>
+    <a href="#day2">D2 Fri 30</a>
+    <a href="#day3">D3 Sat 31</a>
+    <a href="#day4">D4 Sun 1</a>
+    <a href="#day5">D5 Mon 2</a>
+    <a href="#day6">D6 Tue 3</a>
+    <a href="#day7">D7 Wed 4</a>
+    <a href="#day8">D8 Thu 5</a>
+    <a href="#day9">D9 Fri 6</a>
+    <a href="#day10">D10 Sat 7</a>
+    <a href="#day11">D11 Sun 8</a>
+    <a href="#day12">D12 Mon 9</a>
+    <a href="#day13">D13 Tue 10</a>
+    <a href="#day14">D14 Wed 11</a>
+    <a href="#day15">D15 Thu 12</a>
+  </div>
+</nav>
+
+<section class="quick" aria-label="Quick reference">
+  <article class="card span2 reveal">
+    <h2><span class="dot"></span> Arrival day — Fri 30 Oct — quick plan</h2>
+    <ol style="margin:0; padding-left:1.2rem;">
+      <li>Land <strong>Haneda ~7am</strong>, clear customs</li>
+      <li><strong>Airport Limousine Bus → Shinjuku</strong> ~8:30–9am</li>
+      <li><strong>Bounce</strong> bag store @ Shinjuku Station West Gate → shop / sightseeing</li>
+      <li>~3pm collect bags → taxi to Airbnb · <strong>check-in 4pm</strong></li>
+    </ol>
+    <p class="muted" style="margin:.7rem 0 0;">Tokyo street address <span class="tbd">TBD</span> · Bounce booking waits on bag count · Visit Japan Web QR before landing</p>
+  </article>
+
+  <article class="card reveal delay-1">
+    <h2><span class="dot"></span> Cars &amp; who rides where</h2>
+    <p class="muted" style="margin:0 0 .6rem;">Rental window ~<strong>1 Nov 9am → 11 Nov 3pm</strong> (11 days). Day 1 with cars: Nikko lunch.</p>
+    <div class="car-grid">
+      <div class="car"><strong>Car 1 — Edwin’s Alphard</strong><span>Edwin, Pf, Eva, Ethan, Eddie</span></div>
+      <div class="car"><strong>Car 2 — Wei Lih’s Alphard</strong><span>Bee, Jinee, Yan Yan, Mum</span></div>
+      <div class="car"><strong>Car 3</strong><span>Leia, terence, Papa</span></div>
+    </div>
+    <p class="muted" style="margin:.65rem 0 0;">Bring / renew <strong>International Driving Permits</strong>. ETC + child seats as arranged.</p>
+  </article>
+
+  <article class="card reveal delay-2">
+    <h2><span class="dot"></span> Lodging split</h2>
+    <ul>
+      <li><strong>Edwin’s group</strong> — Tokyo Airbnb nights (address <span class="tbd">TBD</span>)</li>
+      <li><strong>Jin’s group</strong> — Shinjuku Washington Hotel (per chat)</li>
+      <li><strong>Road trip stays</strong> — Nikko Airbnb · Yadoya Shiroganeya (Nagano) · Matsumoto · Kawaguchiko · Izu</li>
+      <li><strong>11 Nov</strong> — Tokyo hotel night (Excel: WPÜ Shinjuku — confirm vs Washington)</li>
+    </ul>
+  </article>
+</section>
+
+<section class="card reveal" style="margin-bottom:1.75rem;">
+  <h2><span class="dot"></span> Soft reminders</h2>
+  <div class="reminders">
+    <div class="rem"><span class="ico">🛂</span><div><strong>Visit Japan Web</strong> — register for immigration / customs QR (one email can cover a family).</div></div>
+    <div class="rem"><span class="ico">🛡</span><div><strong>Travel insurance</strong> — confirm cover before departure.</div></div>
+    <div class="rem"><span class="ico">💉</span><div><strong>Flu jab</strong> — Yan Yan needs 2 doses a month apart (plan timing).</div></div>
+    <div class="rem"><span class="ico">✈</span><div><strong>Flights</strong> — Japan Airlines SG ⇄ Haneda on Flight &amp; Car sheet; <span class="tbd">flight numbers TBD</span>. Eddie also has Guangzhou → SG path night of 28 Oct (stay at Edwin’s).</div></div>
+  </div>
+</section>
+
+<section class="card reveal" style="margin-bottom:1.75rem; overflow-x:auto;">
+  <h2><span class="dot"></span> Overnight stays (from New Plan green tab)</h2>
+  <table class="lodge-table">
+    <thead><tr><th>Nights</th><th>Place</th><th>Status</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>Fri–Sat 30–31 Oct</td><td>Tokyo Airbnb</td><td class="status-ok">Booked 50%</td><td>Address <span class="tbd">TBD</span></td></tr>
+      <tr><td>Sun–Tue 1–3 Nov</td><td>Nikko Airbnb</td><td class="status-ok">Booked 100%</td><td>Check-in after 1pm / out before 10am (sheet notes vary)</td></tr>
+      <tr><td>Wed 4 Nov</td><td>Yadoya Shiroganeya, Nagano</td><td class="status-ok">Booked via email</td><td>¥24,200 / adult · confirm meal plan in Oct · private ryokan + onsen</td></tr>
+      <tr><td>Thu–Fri 5–6 Nov</td><td>Matsumoto Airbnb</td><td class="status-ok">Booked 50%</td><td>Cost listed on sheet</td></tr>
+      <tr><td>Sat–Sun 7–8 Nov</td><td>Lake Kawaguchiko Airbnb</td><td class="status-ok">Booked 50%</td><td>Cost listed on sheet</td></tr>
+      <tr><td>Mon–Tue 9–10 Nov</td><td>Izu Airbnb</td><td class="status-ok">Booked 50%</td><td>Cost listed on sheet</td></tr>
+      <tr><td>Wed 11 Nov</td><td>Tokyo hotel</td><td class="status-warn">Booking TBD</td><td>Excel: WPÜ Hotel Shinjuku · chat also mentions Washington for Jin’s group</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="route-strip reveal" aria-label="Route overview">
+  ✈️ SG <span>→</span> 🏙 Tokyo <span>→</span> 🍁 Nikko <span>→</span> ⛩ Nagano <span>→</span> 🏰 Matsumoto / Kamikōchi <span>→</span> 🗻 Kawaguchi <span>→</span> 🌊 Izu <span>→</span> 🏙 Tokyo <span>→</span> ✈️ SG
+</div>
+
+<h2 class="section-title reveal"><span class="bounce-emoji">🎉</span> Day-by-day itinerary</h2>
+
+<!-- DAY 1 -->
+<article class="day" id="day1">
+  <div class="day-photo"><img src="japan-itinerary-assets/tokyo.jpg" alt="Shinjuku skyline, Tokyo" loading="lazy"/><div class="photo-cap">Tokyo awaits · Shinjuku skyline</div></div>
+  <div class="day-head">
+    <div class="day-num">1</div>
+    <div class="day-meta">
+      <div class="when">Thu · 29 Oct 2026</div>
+      <h3>Singapore → Tokyo</h3>
+      <span class="badge">✈ Flight night</span>
+    </div>
+  </div>
+  <div class="day-body">
+    <div class="callout">
+      <div class="pill stay"><strong>Stay:</strong> Overnight flight (on plane)</div>
+      <div class="pill drive"><strong>Move:</strong> Flight window in Excel: 22:25 – 05:55 · Depart SG by ~5:00pm</div>
+    </div>
+    <ul class="timeline">
+      <li><div class="time">Overnight</div><div class="act"><span class="title">Japan Airlines listed on Flight &amp; Car sheet · flight number <span class="tbd">TBD</span></span></div></li>
+    </ul>
+    <a class="next-day" href="#day2">Next: land in Tokyo <span class="arrow">↓</span></a>
+  </div>
+</article>
+
+<!-- DAY 2 -->
+<article class="day" id="day2">
+  <div class="day-photo"><img src="japan-itinerary-assets/shibuya.jpg" alt="Shibuya Crossing, Tokyo" loading="lazy"/><div class="photo-cap">Shibuya Crossing · evening vibes</div></div>
+  <div class="day-head">
+    <div class="day-num">2</div>
+    <div class="day-meta">
+      <div class="when">Fri · 30 Oct 2026</div>
+      <h3>Tokyo — arrival day</h3>
+      <span class="badge">🏙 Tokyo</span>
+    </div>
+  </div>
+  <div class="day-body">
+    <div class="callout">
+      <div class="pill stay"><strong>Stay:</strong> Tokyo Airbnb (Edwin’s group) · Booked &amp; paid 50%</div>
+    </div>
+    <ul class="timeline">
+      <li><div class="time">~7:00am</div><div class="act"><span class="title">Land Haneda, clear customs</span><span class="note">Excel says 6:00am arrival; chat says ~7am — use actual arrival</span></div></li>
+      <li><div class="time">~8:30–9am</div><div class="act"><span class="title">Airport Limousine Bus → Shinjuku</span><span class="note">From Tokyo Planning chat</span></div></li>
+      <li><div class="time">~9:00am+</div><div class="act"><span class="title">Bounce bag store — Shinjuku Station West Gate</span><span class="note">Opens 9am · ~3 min walk · from ¥500/day · Leia/terence booking <span class="tbd">TBD</span></span></div></li>
+      <li><div class="time">Morning</div><div class="act"><span class="title">Breakfast + Shinjuku Gyoen</span><span class="note">Excel: 10:30am store luggage, breakfast, Shinjuku Gyoen</span></div></li>
+      <li><div class="time">1:00pm</div><div class="act"><span class="title">Meiji Jingu Gaien Ginkgo Avenue + lunch</span></div></li>
+      <li><div class="time">~3:00pm</div><div class="act"><span class="title">Collect bags from Bounce</span></div></li>
+      <li><div class="time">4:00pm</div><div class="act"><span class="title">Check in Airbnb</span><span class="note">Street address <span class="tbd">TBD</span></span></div></li>
+      <li><div class="time">7:00pm</div><div class="act"><span class="title">Shibuya Station &amp; Takeshita Street (dinner)</span></div></li>
+    </ul>
+    <div class="wa">Arrival-day plan woven from Excel + Tokyo Planning WhatsApp.</div>
+    <a class="next-day" href="#day3">Next: full Tokyo day <span class="arrow">↓</span></a>
+  </div>
+</article>
+
+<!-- DAY 3 -->
+<article class="day" id="day3">
+  <div class="day-photo"><img src="japan-itinerary-assets/tokyo.jpg" alt="Tokyo cityscape" loading="lazy"/><div class="photo-cap">Tokyo explore day</div></div>
+  <div class="day-head">
+    <div class="day-num">3</div>
+    <div class="day-meta">
+      <div class="when">Sat · 31 Oct 2026</div>
+      <h3>Tokyo</h3>
+      <span class="badge">🏙 Tokyo · Halloween eve!</span>
+    </div>
+  </div>
+  <div class="day-body">
+    <div class="callout">
+      <div class="pill stay"><strong>Stay:</strong> Tokyo Airbnb</div>
+      <div class="pill drive"><strong>Move:</strong> Full day · ~20 km · Depart by 8:00am</div>
+    </div>
+    <ul class="timeline">
+      <li><div class="time">7:00am</div><div class="act"><span class="title">Breakfast at Airbnb</span></div></li>
+      <li><div class="time">9:30am</div><div class="act"><span class="title">Chidorigafuchi Park</span><span class="note">Near 1-chome Kojimachi, Chiyoda</span></div></li>
+      <li><div class="time">11:30am</div><div class="act"><span class="title">teamLab Planets TOKYO</span></div></li>
+      <li><div class="time">1:30pm</div><div class="act"><span class="title">Tsukiji Outer Market</span></div></li>
+      <li><div class="time">4:00pm</div><div class="act"><span class="title">Don Quijote Shinjuku Kabukicho + Shinjuku Station</span><span class="note">Stock breakfast for next day</span></div></li>
+      <li><div class="time">6:00pm</div><div class="act"><span class="title">Dinner TBD</span><span class="note">Meet Bee’s family</span></div></li>
+    </ul>
+    <a class="next-day" href="#day4">Next: cars + Nikko! <span class="arrow">↓</span></a>
+  </div>
+</article>
+
+<!-- DAY 4 -->
+<article class="day" id="day4">
+  <div class="day-photo"><img src="japan-itinerary-assets/nikko.jpg" alt="Nikkō Tōshō-gū Yōmeimon gate" loading="lazy"/><div class="photo-cap">Nikkō Tōshō-gū · Yōmeimon</div></div>
+  <div class="day-head">
+    <div class="day-num">4</div>
+    <div class="day-meta">
+      <div class="when">Sun · 1 Nov 2026</div>
+      <h3>Tokyo → Nikko</h3>
+      <span class="badge">🚗 Drive day · cars start</span>
+    </div>
+  </div>
+  <div class="day-body">
+    <div class="callout">
+      <div class="pill stay"><strong>Stay:</strong> Nikko Airbnb · Booked &amp; paid 100%</div>
+      <div class="pill drive"><strong>Move:</strong> ~2 hr 30 min · 179 km · Depart by 10:00am · Pick up rental cars ~9–10am</div>
+    </div>
+    <ul class="timeline">
+      <li><div class="time">8:00am</div><div class="act"><span class="title">Breakfast at Airbnb</span></div></li>
+      <li><div class="time">10:00am</div><div class="act"><span class="title">Pick up rental cars → drive to Nikko</span><span class="note">Cars: ~1 Nov 9am → 11 Nov 3pm (11 days)</span></div></li>
+      <li><div class="time">1:00pm</div><div class="act"><span class="title">Lunch at Nikko Yubamaki ZEN + sightseeing</span><span class="note">Famous for yuba · 2367 Sannai, Nikko</span></div></li>
+      <li><div class="time">3:00pm</div><div class="act"><span class="title">Meguri Coffee + dessert at Nikko Sakaeya</span></div></li>
+      <li><div class="time">4:00pm</div><div class="act"><span class="title">Check in Nikko Airbnb &amp; rest</span></div></li>
+      <li><div class="time">6:00pm</div><div class="act"><span class="title">Lion Dor supermarket — dinner + breakfast stock</span></div></li>
+    </ul>
+    <div class="wa">Day 1 with cars: Nikko for lunch (confirmed in chat).</div>
+    <a class="next-day" href="#day5">Next: Edo Wonderland fun <span class="arrow">↓</span></a>
+  </div>
+</article>
+
+<!-- DAY 5 -->
+<article class="day" id="day5">
+  <div class="day-photo"><img src="japan-itinerary-assets/maple.jpg" alt="Japanese maple leaves" loading="lazy"/><div class="photo-cap">Autumn momiji mood · Nikko</div></div>
+  <div class="day-head">
+    <div class="day-num">5</div>
+    <div class="day-meta">
+      <div class="when">Mon · 2 Nov 2026</div>
+      <h3>Nikko</h3>
+      <span class="badge">🍁 Nikko play day</span>
+    </div>
+  </div>
+  <div class="day-body">
+    <div class="callout"><div class="pill stay"><strong>Stay:</strong> Nikko Airbnb</div></div>
+    <ul class="timeline">
+      <li><div class="time">8:00am</div><div class="act"><span class="title">Breakfast at Airbnb</span></div></li>
+      <li><div class="time">9:00am</div><div class="act"><span class="title">Edo Wonderland Nikko Edomura</span></div></li>
+      <li><div class="time">12:00pm</div><div class="act"><span class="title">Lunch at Kitamura</span><span class="note">Soba</span></div></li>
+      <li><div class="time">2:00pm</div><div class="act"><span class="title">Baumkuchen Studio Hachiya Café</span><span class="note">Ring cake &amp; pudding</span></div></li>
+      <li><div class="time">3:00pm</div><div class="act"><span class="title">Kinu-Tateiwa Otsuribashi Suspension Bridge</span></div></li>
+      <li><div class="time">4:00pm</div><div class="act"><span class="title">Akebi Onsen</span></div></li>
+      <li><div class="time">6:00pm</div><div class="act"><span class="title">Dinner at SHIORI</span><span class="note">Omakase set · reserve ahead</span></div></li>
+    </ul>
+    <a class="next-day" href="#day6">Next: Kegon Falls <span class="arrow">↓</span></a>
+  </div>
+</article>
+
+<!-- DAY 6 -->
+<article class="day" id="day6">
+  <div class="day-photo"><img src="japan-itinerary-assets/kegon.jpg" alt="Kegon Falls, Nikko" loading="lazy"/><div class="photo-cap">Kegon Falls · Nikko</div></div>
+  <div class="day-head">
+    <div class="day-num">6</div>
+    <div class="day-meta">
+      <div class="when">Tue · 3 Nov 2026</div>
+      <h3>Nikko</h3>
+      <span class="badge">🍁 Waterfalls &amp; shrines</span>
+    </div>
+  </div>
+  <div class="day-body">
+    <div class="callout"><div class="pill stay"><strong>Stay:</strong> Nikko Airbnb</div></div>
+    <ul class="timeline">
+      <li><div class="time">7:30am</div><div class="act"><span class="title">Breakfast at Airbnb</span></div></li>
+      <li><div class="time">9:00am</div><div class="act"><span class="title">Kegon Falls</span><span class="note">Toki Coffee takeaway on the way</span></div></li>
+      <li><div class="time">10:00am</div><div class="act"><span class="title">Chūzenji Temple &amp; Italy Embassy Villa</span><span class="note">Excel typo said 10:00pm — treated as morning</span></div></li>
+      <li><div class="time">12:00pm</div><div class="act"><span class="title">Lunch at Sushi Kurosaki</span></div></li>
+      <li><div class="time">2:30pm</div><div class="act"><span class="title">Nikkō Tōshō-gū Shrine</span></div></li>
+      <li><div class="time">3:30pm</div><div class="act"><span class="title">Kanmangafuchi Abyss</span><span class="note">&lt;1 km riverside walk</span></div></li>
+      <li><div class="time">5:30pm</div><div class="act"><span class="title">Dinner at Enya</span><span class="note">Hamburg &amp; skewers</span></div></li>
+      <li><div class="time">8:00pm</div><div class="act"><span class="title">Akebi Onsen</span></div></li>
+    </ul>
+    <a class="next-day" href="#day7">Next: road to Nagano <span class="arrow">↓</span></a>
+  </div>
+</article>
+
+<!-- DAY 7 -->
+<article class="day" id="day7">
+  <div class="day-photo"><img src="japan-itinerary-assets/nagano.jpg" alt="Zenkō-ji temple, Nagano" loading="lazy"/><div class="photo-cap">Nagano · Zenkō-ji area</div></div>
+  <div class="day-head">
+    <div class="day-num">7</div>
+    <div class="day-meta">
+      <div class="when">Wed · 4 Nov 2026</div>
+      <h3>Nikko → Nagano</h3>
+      <span class="badge">🚗 Drive · ryokan night</span>
+    </div>
+  </div>
+  <div class="day-body">
+    <div class="callout">
+      <div class="pill stay"><strong>Stay:</strong> Yadoya Shiroganeya (ryokan) · Booked via email · ¥24,200 / adult</div>
+      <div class="pill drive"><strong>Move:</strong> ~3 hr 30 min · 274 km · Depart by 8:30am (early)</div>
+    </div>
+    <ul class="timeline">
+      <li><div class="time">7:00am</div><div class="act"><span class="title">Breakfast at Airbnb</span></div></li>
+      <li><div class="time">12:30pm</div><div class="act"><span class="title">Lunch at Uzuraya (soba)</span></div></li>
+      <li><div class="time">2:00pm</div><div class="act"><span class="title">Togakushi Ninja Museum → Kagami-ike Pond</span></div></li>
+      <li><div class="time">4:00pm</div><div class="act"><span class="title">Check in ryokan &amp; unwind</span><span class="note">Entire ryokan for one family · in-house onsen · confirm meal plan in Oct</span></div></li>
+      <li><div class="time">6:00pm</div><div class="act"><span class="title">Dinner in ryokan (inclusive)</span></div></li>
+    </ul>
+    <a class="next-day" href="#day8">Next: Togakushi cedar trek <span class="arrow">↓</span></a>
+  </div>
+</article>
+
+<!-- DAY 8 -->
+<article class="day" id="day8">
+  <div class="day-photo"><img src="japan-itinerary-assets/togakushi.jpg" alt="Togakushi Shrine Okusha torii" loading="lazy"/><div class="photo-cap">Togakushi Shrine · Okusha approach</div></div>
+  <div class="day-head">
+    <div class="day-num">8</div>
+    <div class="day-meta">
+      <div class="when">Thu · 5 Nov 2026</div>
+      <h3>Nagano → Matsumoto</h3>
+      <span class="badge">🚗 Drive day</span>
+    </div>
+  </div>
+  <div class="day-body">
+    <div class="callout">
+      <div class="pill stay"><strong>Stay:</strong> Matsumoto Airbnb · Booked &amp; paid 50%</div>
+      <div class="pill drive"><strong>Move:</strong> ~1 hr 50 min · 90 km · Depart by 9:00am</div>
+    </div>
+    <ul class="timeline">
+      <li><div class="time">7:30am</div><div class="act"><span class="title">Breakfast in ryokan (inclusive)</span></div></li>
+      <li><div class="time">9:30am</div><div class="act"><span class="title">Togakushi Shrine Okusha (main shrine)</span><span class="note">Cedar-tree short trek</span></div></li>
+      <li><div class="time">1:00pm</div><div class="act"><span class="title">Lunch at Mensho Sakura (ramen)</span></div></li>
+      <li><div class="time">3:30pm</div><div class="act"><span class="title">AEON — stock breakfast + lunch next day</span></div></li>
+      <li><div class="time">4:30pm</div><div class="act"><span class="title">Check in Matsumoto Airbnb &amp; rest</span></div></li>
+      <li><div class="time">6:00pm</div><div class="act"><span class="title">Dinner at Yana no Unagi Kankouso</span><span class="note">Famous unagi</span></div></li>
+    </ul>
+    <a class="next-day" href="#day9">Next: Kamikōchi early start <span class="arrow">↓</span></a>
+  </div>
+</article>
+
+<!-- DAY 9 -->
+<article class="day" id="day9">
+  <div class="day-photo"><img src="japan-itinerary-assets/kamikochi.jpg" alt="Kamikōchi Kappa Bridge" loading="lazy"/><div class="photo-cap">Kamikōchi · Kappa Bridge</div></div>
+  <div class="day-head">
+    <div class="day-num">9</div>
+    <div class="day-meta">
+      <div class="when">Fri · 6 Nov 2026</div>
+      <h3>Matsumoto → Kamikōchi → Matsumoto</h3>
+      <span class="badge">🏔 Nature + castle</span>
+    </div>
+  </div>
+  <div class="day-body">
+    <div class="callout">
+      <div class="pill stay"><strong>Stay:</strong> Matsumoto Airbnb</div>
+      <div class="pill drive"><strong>Move:</strong> ~1 hr · 53 km one way · Depart by 6:30am (early)</div>
+    </div>
+    <ul class="timeline">
+      <li><div class="time">6:00am</div><div class="act"><span class="title">Breakfast at Airbnb</span></div></li>
+      <li><div class="time">8:00am</div><div class="act"><span class="title">Kamikōchi + brunch picnic</span><span class="note">Park at Sawando gate · take bus · buy bus tickets</span></div></li>
+      <li><div class="time">2:00pm</div><div class="act"><span class="title">Matsumoto Castle</span></div></li>
+      <li><div class="time">Afternoon</div><div class="act"><span class="title">Nawate Shopping Street</span></div></li>
+      <li><div class="time">6:00pm</div><div class="act"><span class="title">AEON Jusco — shop + dinner</span></div></li>
+    </ul>
+    <div style="margin-top:.85rem;border-radius:14px;overflow:hidden;"><img src="japan-itinerary-assets/matsumoto.jpg" alt="Matsumoto Castle" style="width:100%;max-height:160px;object-fit:cover;display:block;" loading="lazy"/><div style="font-size:.75rem;color:var(--muted);padding:.4rem .2rem;">Matsumoto Castle (afternoon stop)</div></div>
+    <a class="next-day" href="#day10">Next: Mt Fuji area <span class="arrow">↓</span></a>
+  </div>
+</article>
+
+<!-- DAY 10 -->
+<article class="day" id="day10">
+  <div class="day-photo"><img src="japan-itinerary-assets/fuji.jpg" alt="Mount Fuji from Lake Kawaguchiko" loading="lazy"/><div class="photo-cap">Mt Fuji · Lake Kawaguchiko</div></div>
+  <div class="day-head">
+    <div class="day-num">10</div>
+    <div class="day-meta">
+      <div class="when">Sat · 7 Nov 2026</div>
+      <h3>Matsumoto → Lake Kawaguchi</h3>
+      <span class="badge">🗻 Fuji area</span>
+    </div>
+  </div>
+  <div class="day-body">
+    <div class="callout"><div class="pill stay"><strong>Stay:</strong> Lake Kawaguchiko Airbnb · Booked &amp; paid 50%</div></div>
+    <ul class="timeline">
+      <li><div class="time">7:30am</div><div class="act"><span class="title">Breakfast at Airbnb</span></div></li>
+      <li><div class="time">11:30am</div><div class="act"><span class="title">Oishi Park &amp; Maple Corridor</span><span class="note">Park at Patisserie Espérance · Excel had 11:30pm typo</span></div></li>
+      <li><div class="time">1:00pm</div><div class="act"><span class="title">Lunch at Houtou Fudou Kawaguchiko North</span><span class="note">Famous houtou</span></div></li>
+      <li><div class="time">2:30pm</div><div class="act"><span class="title">Tenkū no Torii</span><span class="note">Short climb · Mt Fuji view</span></div></li>
+      <li><div class="time">3:30pm</div><div class="act"><span class="title">Kawaguchiko base — stock breakfast</span></div></li>
+      <li><div class="time">4:00pm</div><div class="act"><span class="title">Check in Airbnb</span></div></li>
+      <li><div class="time">6:30pm</div><div class="act"><span class="title">Dinner at Beef Cutlet Restaurant Koushuya</span></div></li>
+    </ul>
+    <a class="next-day" href="#day11">Next: Chūreito Pagoda climb <span class="arrow">↓</span></a>
+  </div>
+</article>
+
+<!-- DAY 11 -->
+<article class="day" id="day11">
+  <div class="day-photo"><img src="japan-itinerary-assets/chureito.jpg" alt="Chūreito Pagoda with Mount Fuji" loading="lazy"/><div class="photo-cap">Chūreito Pagoda · classic Fuji view</div></div>
+  <div class="day-head">
+    <div class="day-num">11</div>
+    <div class="day-meta">
+      <div class="when">Sun · 8 Nov 2026</div>
+      <h3>Lake Kawaguchi</h3>
+      <span class="badge">🗻 Pagoda &amp; ropeway</span>
+    </div>
+  </div>
+  <div class="day-body">
+    <div class="callout"><div class="pill stay"><strong>Stay:</strong> Lake Kawaguchiko Airbnb</div></div>
+    <ul class="timeline">
+      <li><div class="time">7:00am</div><div class="act"><span class="title">Breakfast at Airbnb</span></div></li>
+      <li><div class="time">8:30am</div><div class="act"><span class="title">Arakura Sengen Shrine &amp; Chūreito Pagoda</span><span class="note">Early climb for the view</span></div></li>
+      <li><div class="time">11:00am</div><div class="act"><span class="title">Fujiyoshida Retro Shopping Street</span></div></li>
+      <li><div class="time">12:30pm</div><div class="act"><span class="title">Lunch at Fuji Tempura IDATEN Kawaguchiko</span></div></li>
+      <li><div class="time">2:30pm</div><div class="act"><span class="title">Mt Fuji Panoramic Ropeway</span></div></li>
+      <li><div class="time">3:30pm</div><div class="act"><span class="title">Apple Pie Lab (dessert)</span></div></li>
+      <li><div class="time">4:30pm</div><div class="act"><span class="title">Kawaguchiko Shopping Center BELL — dinner supplies</span></div></li>
+      <li><div class="time">7:30pm</div><div class="act"><span class="title">Dinner at Airbnb</span></div></li>
+    </ul>
+    <a class="next-day" href="#day12">Next: Izu peninsula <span class="arrow">↓</span></a>
+  </div>
+</article>
+
+<!-- DAY 12 -->
+<article class="day" id="day12">
+  <div class="day-photo"><img src="japan-itinerary-assets/izu.jpg" alt="Jōgasaki Coast, Izu" loading="lazy"/><div class="photo-cap">Izu coastline mood</div></div>
+  <div class="day-head">
+    <div class="day-num">12</div>
+    <div class="day-meta">
+      <div class="when">Mon · 9 Nov 2026</div>
+      <h3>Lake Kawaguchi → Izu</h3>
+      <span class="badge">🚗 Drive · onsen town</span>
+    </div>
+  </div>
+  <div class="day-body">
+    <div class="callout">
+      <div class="pill stay"><strong>Stay:</strong> Izu Airbnb · Booked &amp; paid 50%</div>
+      <div class="pill drive"><strong>Move:</strong> ~1 hr 30 min · 90 km · Depart by 9:00am (early)</div>
+    </div>
+    <ul class="timeline">
+      <li><div class="time">7:30am</div><div class="act"><span class="title">Breakfast at Airbnb</span></div></li>
+      <li><div class="time">10:30am</div><div class="act"><span class="title">Shuzenji Temple &amp; bamboo forest</span></div></li>
+      <li><div class="time">12:00pm</div><div class="act"><span class="title">Lunch at Amago-chaya</span><span class="note">River-fish tempura</span></div></li>
+      <li><div class="time">1:00pm</div><div class="act"><span class="title">Dessert at Manju-sho Honzangenraku Shuzenji</span></div></li>
+      <li><div class="time">2:00pm</div><div class="act"><span class="title">Jōren Falls</span></div></li>
+      <li><div class="time">3:30pm</div><div class="act"><span class="title">Tofuya Bakery &amp; Table</span><span class="note">Takeaway breakfast</span></div></li>
+      <li><div class="time">4:00pm</div><div class="act"><span class="title">Check in Izu Airbnb</span></div></li>
+      <li><div class="time">7:00pm</div><div class="act"><span class="title">Dinner at Sugiya</span><span class="note">Seafood</span></div></li>
+    </ul>
+    <a class="next-day" href="#day13">Next: Omuro + capybaras! <span class="arrow">↓</span></a>
+  </div>
+</article>
+
+<!-- DAY 13 -->
+<article class="day" id="day13">
+  <div class="day-photo"><img src="japan-itinerary-assets/izu.jpg" alt="Jōgasaki Coast cliffs" loading="lazy"/><div class="photo-cap">Jōgasaki Coast · Izu</div></div>
+  <div class="day-head">
+    <div class="day-num">13</div>
+    <div class="day-meta">
+      <div class="when">Tue · 10 Nov 2026</div>
+      <h3>Izu</h3>
+      <span class="badge">🌊 Coast + zoo fun</span>
+    </div>
+  </div>
+  <div class="day-body">
+    <div class="callout"><div class="pill stay"><strong>Stay:</strong> Izu Airbnb</div></div>
+    <ul class="timeline">
+      <li><div class="time">8:00am</div><div class="act"><span class="title">Breakfast at Airbnb</span></div></li>
+      <li><div class="time">9:30am</div><div class="act"><span class="title">Mount Ōmuro via climbing chairlift</span></div></li>
+      <li><div class="time">11:00am</div><div class="act"><span class="title">Izu Shaboten Zoo</span><span class="note">Capybara in onsen 🦫♨️</span></div></li>
+      <li><div class="time">1:00pm</div><div class="act"><span class="title">Lunch at Kazumura or Ugashin</span><span class="note">Tonkatsu or Japanese set · Excel said 1:00am typo</span></div></li>
+      <li><div class="time">2:00pm</div><div class="act"><span class="title">Jōgasaki Coast</span></div></li>
+      <li><div class="time">6:30pm</div><div class="act"><span class="title">Dinner at Uogashizushi</span><span class="note">Conveyor-belt sushi</span></div></li>
+    </ul>
+    <a class="next-day" href="#day14">Next: Izu Skyline → Tokyo <span class="arrow">↓</span></a>
+  </div>
+</article>
+
+<!-- DAY 14 -->
+<article class="day" id="day14">
+  <div class="day-photo"><img src="japan-itinerary-assets/shibuya.jpg" alt="Tokyo evening streets" loading="lazy"/><div class="photo-cap">Back to Tokyo · night eats</div></div>
+  <div class="day-head">
+    <div class="day-num">14</div>
+    <div class="day-meta">
+      <div class="when">Wed · 11 Nov 2026</div>
+      <h3>Izu → Tokyo</h3>
+      <span class="badge">🚗 Return cars</span>
+    </div>
+  </div>
+  <div class="day-body">
+    <div class="callout">
+      <div class="pill stay"><strong>Stay:</strong> Tokyo hotel night · Excel: WPÜ Hotel Shinjuku (booking <span class="tbd">TBD</span>)</div>
+      <div class="pill drive"><strong>Move:</strong> Via Izu Skyline · Depart by 8:00am · Return cars ~3:00pm</div>
+    </div>
+    <ul class="timeline">
+      <li><div class="time">7:00am</div><div class="act"><span class="title">Breakfast at Airbnb</span></div></li>
+      <li><div class="time">9:00am</div><div class="act"><span class="title">Drive back to Tokyo via Izu Skyline</span></div></li>
+      <li><div class="time">1:00pm</div><div class="act"><span class="title">Shinjuku Shin-Ōkubo — shopping + lunch</span><span class="note">Korean town vibes</span></div></li>
+      <li><div class="time">3:00pm</div><div class="act"><span class="title">Check in hotel + return rental cars</span></div></li>
+      <li><div class="time">6:30pm</div><div class="act"><span class="title">Dinner at Shinjuku Nishiguchi Omoide Yokocho</span><span class="note">Old alley bars / eats</span></div></li>
+    </ul>
+    <div class="wa">Jin’s group referenced Shinjuku Washington Hotel in chat; Excel lists WPÜ Hotel Shinjuku — confirm which applies to whom.</div>
+    <a class="next-day" href="#day15">Next: fly home <span class="arrow">↓</span></a>
+  </div>
+</article>
+
+<!-- DAY 15 -->
+<article class="day" id="day15">
+  <div class="day-photo"><img src="japan-itinerary-assets/tokyo.jpg" alt="Tokyo skyline farewell" loading="lazy"/><div class="photo-cap">Sayōnara Tokyo · until next time</div></div>
+  <div class="day-head">
+    <div class="day-num">15</div>
+    <div class="day-meta">
+      <div class="when">Thu · 12 Nov 2026</div>
+      <h3>Tokyo → Singapore</h3>
+      <span class="badge">✈ Day flight home</span>
+    </div>
+  </div>
+  <div class="day-body">
+    <div class="callout">
+      <div class="pill stay"><strong>Stay:</strong> Homebound (day flight)</div>
+      <div class="pill drive"><strong>Move:</strong> Depart lodging by 8:00am</div>
+    </div>
+    <ul class="timeline">
+      <li><div class="time">7:00am</div><div class="act"><span class="title">Breakfast</span><span class="note">Excel says Airbnb — may be hotel depending on Day 14 booking</span></div></li>
+      <li><div class="time">8:00am</div><div class="act"><span class="title">Depart to airport</span><span class="note">Japan Airlines Haneda → Singapore · flight number <span class="tbd">TBD</span></span></div></li>
+    </ul>
+    <div class="wa">After SG: Eddie flying onward to KL; Edwin offered his place or a connecting flight.</div>
+    <a class="next-day" href="#top">Back to top ✨</a>
+  </div>
+</article>
+
+<footer>
+  <p><strong>Source:</strong> Edwin’s <em>260917_Autumn Japan Itinerary_Draft.xlsx</em> — green tabs <strong>Itinerary</strong> &amp; <strong>New Plan</strong>, plus <strong>Flight &amp; Car</strong> and Tokyo Planning / Goh Siblings WhatsApp facts.</p>
+  <p style="margin:.6rem 0 0;">Gaps marked <span class="tbd">TBD</span>: flight numbers, Tokyo Airbnb street address, some dinners, final 11 Nov hotel, Bounce bag count. Confirm costs with Edwin.</p>
+  <p style="margin:.6rem 0 0;">Weekdays verified for 2026: <strong>Thu 29 Oct</strong> → <strong>Thu 12 Nov</strong>. Prepared for Eddie Goh · Goh family · Oct 2026 MYT.</p>
+  <p class="credits"><strong>Photo credits (Wikimedia Commons):</strong> Shinjuku skyline; Shibuya Crossing; Nikkō Tōshō-gū Yōmeimon; Kegon Falls; Matsumoto Castle; Kamikōchi Kappa Bridge; Mt Fuji / Kawaguchiko; Chūreito Pagoda; Jōgasaki Coast; Togakushi Okusha; Zenkō-ji; momiji leaves. See <code>japan-itinerary-assets/CREDITS.txt</code>.</p>
+</footer>
+
+</div>
+
+<button class="fun-fab" id="funFab" type="button" title="Leaf burst!" aria-label="Fun leaf burst">🍁</button>
+
+<script>
+(function () {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const sticky = document.getElementById('stickyBar');
+  const fill = document.getElementById('progressFill');
+  const days = Array.from(document.querySelectorAll('.day'));
+  const reveals = Array.from(document.querySelectorAll('.reveal'));
+  const tocLinks = Array.from(document.querySelectorAll('#tocNav a'));
+
+  // Sticky show after cover
+  const cover = document.querySelector('.cover');
+  const showSticky = () => {
+    if (!cover) return;
+    const y = cover.getBoundingClientRect().bottom;
+    sticky.classList.toggle('show', y < 40);
+  };
+
+  // Progress
+  const updateProgress = () => {
+    const doc = document.documentElement;
+    const max = doc.scrollHeight - window.innerHeight;
+    const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
+    fill.style.width = Math.min(100, Math.max(0, pct)) + '%';
+    showSticky();
+    // Active toc
+    let current = null;
+    for (const d of days) {
+      if (d.getBoundingClientRect().top <= 140) current = d.id;
+    }
+    tocLinks.forEach(a => {
+      a.classList.toggle('active', current && a.getAttribute('href') === '#' + current);
+    });
+  };
+
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  if (!reduce) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    days.forEach(d => io.observe(d));
+    reveals.forEach(r => io.observe(r));
+  } else {
+    days.forEach(d => d.classList.add('in'));
+    reveals.forEach(r => r.classList.add('in'));
+  }
+
+  // Fun fab — leaf burst
+  const fab = document.getElementById('funFab');
+  fab.addEventListener('click', () => {
+    if (reduce) {
+      window.scrollTo({ top: 0 });
+      return;
+    }
+    for (let i = 0; i < 14; i++) {
+      const el = document.createElement('span');
+      el.textContent = ['🍁','🍂','✨','🍃'][i % 4];
+      el.style.cssText = 'position:fixed;left:' + (fab.getBoundingClientRect().left + 20) + 'px;top:' +
+        (fab.getBoundingClientRect().top) + 'px;font-size:' + (1 + Math.random()) + 'rem;pointer-events:none;z-index:100;transition:transform 1.1s ease-out,opacity 1.1s;';
+      document.body.appendChild(el);
+      requestAnimationFrame(() => {
+        const dx = (Math.random() - 0.5) * 280;
+        const dy = -80 - Math.random() * 220;
+        el.style.transform = 'translate(' + dx + 'px,' + dy + 'px) rotate(' + (Math.random()*360) + 'deg)';
+        el.style.opacity = '0';
+      });
+      setTimeout(() => el.remove(), 1200);
+    }
+  });
+})();
+</script>
+</body>
+</html>
