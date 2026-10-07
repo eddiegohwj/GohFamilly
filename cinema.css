@@ -759,7 +759,7 @@ body.glitch::after {
   position: fixed;
   left: 1rem;
   bottom: 1rem;
-  z-index: 110;
+  z-index: 320;
   border: 1px solid var(--gold);
   cursor: pointer;
   background: rgba(7, 6, 11, .88);
