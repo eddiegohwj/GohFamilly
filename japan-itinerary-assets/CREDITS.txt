@@ -71,8 +71,9 @@ video/fuji.mp4
 Izu stays on the Jōgasaki still. No coastal clip was added.
 
 family/
-  Placeholder discs (initials) until a real photo is dropped in as family/<name>.jpg
-  (edwin, pf, eva, ethan, eddie, bee, jinee, yan-yan, mum, leia, terence, papa, jin, wei-lih).
+  Named discs are initials only. The page does not request family/<name>.jpg
+  (edwin, pf, eva, ethan, eddie, bee, jinee, yan-yan, mum, leia, terence, papa, jin, wei-lih)
+  until that portrait file exists and is placed on the disc.
 
 family/toddler-girl.jpg, family/dog.jpg, family/baby-stroller.jpg
   Goh family WhatsApp photos, Jul–Aug 2026, used with Eddie’s permission.
