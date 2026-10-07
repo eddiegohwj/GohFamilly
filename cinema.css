@@ -919,6 +919,9 @@ body.glitch::after {
   color: var(--muted);
   font-size: .82rem;
 }
+@media (max-width: 700px) {
+  .family-moments img { height: min(17.5rem, 48vh); }
+}
 .avatar img.shot-face { object-position: center 12%; }
 .avatar img.shot-dog { object-position: center 42%; }
 .avatar img.shot-baby { object-position: center 36%; }
