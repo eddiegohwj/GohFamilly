@@ -29,7 +29,7 @@
   <div>
     <p class="eyebrow">A Goh family picture</p>
     <p class="intro-title">Kōyō<br/>Syndrome</p>
-    <button type="button">Enter</button>
+    <button type="button" id="enterTrip">Enter the trip</button>
   </div>
 </div>
 
@@ -39,6 +39,8 @@
     <a class="brand" href="#top">Kōyō</a>
     <nav id="tocNav" aria-label="Trip index">
       <a href="#brief">Plan</a>
+      <a href="#todos">Todos</a>
+      <a href="#family">Family</a>
       <a href="#cars">Cars</a>
       <a href="#stays">Stays</a>
       <a href="#day1">D1 Thu 29</a>
@@ -65,10 +67,12 @@
     <div class="hero-stage">
       <div class="pane pane-a">
         <img src="japan-itinerary-assets/nikko.jpg" alt="" width="1100" height="828"/>
+        <video class="cut-video" autoplay muted loop playsinline poster="japan-itinerary-assets/maple.jpg" src="japan-itinerary-assets/video/maple.mp4"></video>
         <p class="pane-label">Nikkō · heritage</p>
       </div>
       <div class="pane pane-b">
         <img src="japan-itinerary-assets/shibuya.jpg" alt="" width="1100" height="733"/>
+        <video class="cut-video" autoplay muted loop playsinline poster="japan-itinerary-assets/shibuya.jpg" src="japan-itinerary-assets/video/shibuya.mp4"></video>
         <p class="pane-label">Shibuya · neon</p>
       </div>
       <div class="hero-slash" aria-hidden="true"></div>
@@ -171,6 +175,124 @@
     </div>
   </section>
 
+  <section class="todos" id="todos">
+    <div class="wrap">
+      <p class="eyebrow">Still open</p>
+      <h2>Todo</h2>
+      <p class="todo-count" id="todoCount">Open items from the plan</p>
+      <ul class="todo-list">
+        <li>
+          <label>
+            <input type="checkbox" data-todo="vjw"/>
+            <span class="todo-copy"><strong>Visit Japan Web</strong><span>Register for immigration / customs QR before landing. One email can cover a family.</span></span>
+            <span class="pic"><span class="avatar" style="--disc:#5dfff0">Ed<img alt="" src="japan-itinerary-assets/family/eddie.jpg"/></span><span class="pic-name">Eddie</span></span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" data-todo="insurance"/>
+            <span class="todo-copy"><strong>Travel insurance</strong><span>Confirm cover before departure.</span></span>
+            <span class="pic"><span class="avatar" style="--disc:#e8d5b5">Pa<img alt="" src="japan-itinerary-assets/family/papa.jpg"/></span><span class="pic-name">Papa</span></span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" data-todo="flu"/>
+            <span class="todo-copy"><strong>Flu jab</strong><span>Yan Yan needs 2 doses a month apart (plan timing).</span></span>
+            <span class="pic"><span class="avatar" style="--disc:#f4efe6">Mu<img alt="" src="japan-itinerary-assets/family/mum.jpg"/></span><span class="pic-name">Mum</span></span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" data-todo="flights"/>
+            <span class="todo-copy"><strong>Flight numbers <span class="tbd">TBD</span></strong><span>Japan Airlines SG ⇄ Haneda on the Flight &amp; Car sheet. Eddie also has Guangzhou → SG path night of 28 Oct (stay at Edwin’s).</span></span>
+            <span class="pic"><span class="avatar" style="--disc:#f0b429">En<img alt="" src="japan-itinerary-assets/family/edwin.jpg"/></span><span class="pic-name">Edwin</span></span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" data-todo="bounce"/>
+            <span class="todo-copy"><strong>Bounce bag count <span class="tbd">TBD</span></strong><span>Leia/terence booking at Shinjuku Station West Gate. Opens 9am · ~3 min walk · from ¥500/day.</span></span>
+            <span class="pic"><span class="avatar" style="--disc:#c9a27a">Te<img alt="" src="japan-itinerary-assets/family/terence.jpg"/></span><span class="pic-name">terence</span></span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" data-todo="address"/>
+            <span class="todo-copy"><strong>Tokyo Airbnb street address <span class="tbd">TBD</span></strong><span>Edwin’s group. Nights Fri–Sat 30–31 Oct, booked 50%.</span></span>
+            <span class="pic"><span class="avatar" style="--disc:#f0b429">En<img alt="" src="japan-itinerary-assets/family/edwin.jpg"/></span><span class="pic-name">Edwin</span></span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" data-todo="hotel"/>
+            <span class="todo-copy"><strong>11 Nov hotel <span class="tbd">TBD</span></strong><span>Excel: WPÜ Hotel Shinjuku. Chat also mentions Washington for Jin’s group. Confirm which applies to whom.</span></span>
+            <span class="pic"><span class="avatar" style="--disc:#9dbe7a">Ji<img alt="" src="japan-itinerary-assets/family/jin.jpg"/></span><span class="pic-name">Jin</span></span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" data-todo="meals"/>
+            <span class="todo-copy"><strong>Ryokan meal plan</strong><span>Yadoya Shiroganeya, Nagano — confirm meal plan in Oct. ¥24,200 / adult · private ryokan + onsen.</span></span>
+            <span class="pic"><span class="avatar" style="--disc:#f0b429">En<img alt="" src="japan-itinerary-assets/family/edwin.jpg"/></span><span class="pic-name">Edwin</span></span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" data-todo="shiori"/>
+            <span class="todo-copy"><strong>Reserve SHIORI</strong><span>Mon 2 Nov dinner in Nikko. Omakase set · reserve ahead.</span></span>
+            <span class="pic"><span class="avatar" style="--disc:#f0b429">En<img alt="" src="japan-itinerary-assets/family/edwin.jpg"/></span><span class="pic-name">Edwin</span></span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" data-todo="idp"/>
+            <span class="todo-copy"><strong>International Driving Permits</strong><span>Bring / renew IDPs. ETC + child seats as arranged. Three cars, ~1 Nov 9am → 11 Nov 3pm.</span></span>
+            <span class="pic"><span class="avatar" style="--disc:#f0b429">En<img alt="" src="japan-itinerary-assets/family/edwin.jpg"/></span><span class="pic-name">Edwin</span></span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" data-todo="dinner31"/>
+            <span class="todo-copy"><strong>Sat 31 Oct dinner <span class="tbd">TBD</span></strong><span>Meet Bee’s family.</span></span>
+            <span class="pic"><span class="avatar" style="--disc:#ff2f92">Be<img alt="" src="japan-itinerary-assets/family/bee.jpg"/></span><span class="pic-name">Bee</span></span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" data-todo="costs"/>
+            <span class="todo-copy"><strong>Confirm costs with Edwin</strong><span>Sheet costs for Matsumoto, Kawaguchiko, and Izu are listed but not copied here.</span></span>
+            <span class="pic"><span class="avatar" style="--disc:#5dfff0">Ed<img alt="" src="japan-itinerary-assets/family/eddie.jpg"/></span><span class="pic-name">Eddie</span></span>
+          </label>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="family" id="family">
+    <div class="wrap">
+      <p class="eyebrow">Faces</p>
+      <h2>Family</h2>
+      <p class="family-note">Initials for now. Drop a real photo in later as <code>japan-itinerary-assets/family/eddie.jpg</code> (same pattern for each name: edwin, pf, eva, ethan, eddie, bee, jinee, yan-yan, mum, leia, terence, papa, jin, wei-lih). It shows here and on the todo board.</p>
+      <div class="family-row">
+        <div class="family-card"><span class="avatar" style="--disc:#f0b429">En<img alt="" src="japan-itinerary-assets/family/edwin.jpg"/></span><p>Edwin</p></div>
+        <div class="family-card"><span class="avatar" style="--disc:#ff8a5c">Pf<img alt="" src="japan-itinerary-assets/family/pf.jpg"/></span><p>Pf</p></div>
+        <div class="family-card"><span class="avatar" style="--disc:#e7b3c8">Ev<img alt="" src="japan-itinerary-assets/family/eva.jpg"/></span><p>Eva</p></div>
+        <div class="family-card"><span class="avatar" style="--disc:#8ec6ff">Et<img alt="" src="japan-itinerary-assets/family/ethan.jpg"/></span><p>Ethan</p></div>
+        <div class="family-card"><span class="avatar" style="--disc:#5dfff0">Ed<img alt="" src="japan-itinerary-assets/family/eddie.jpg"/></span><p>Eddie</p></div>
+        <div class="family-card"><span class="avatar" style="--disc:#ff2f92">Be<img alt="" src="japan-itinerary-assets/family/bee.jpg"/></span><p>Bee</p></div>
+        <div class="family-card"><span class="avatar" style="--disc:#d6b15a">Jn<img alt="" src="japan-itinerary-assets/family/jinee.jpg"/></span><p>Jinee</p></div>
+        <div class="family-card"><span class="avatar" style="--disc:#b6e38a">Yy<img alt="" src="japan-itinerary-assets/family/yan-yan.jpg"/></span><p>Yan Yan</p></div>
+        <div class="family-card"><span class="avatar" style="--disc:#f4efe6">Mu<img alt="" src="japan-itinerary-assets/family/mum.jpg"/></span><p>Mum</p></div>
+        <div class="family-card"><span class="avatar" style="--disc:#ff7ad9">Le<img alt="" src="japan-itinerary-assets/family/leia.jpg"/></span><p>Leia</p></div>
+        <div class="family-card"><span class="avatar" style="--disc:#c9a27a">Te<img alt="" src="japan-itinerary-assets/family/terence.jpg"/></span><p>terence</p></div>
+        <div class="family-card"><span class="avatar" style="--disc:#e8d5b5">Pa<img alt="" src="japan-itinerary-assets/family/papa.jpg"/></span><p>Papa</p></div>
+        <div class="family-card"><span class="avatar" style="--disc:#9dbe7a">Ji<img alt="" src="japan-itinerary-assets/family/jin.jpg"/></span><p>Jin</p></div>
+        <div class="family-card"><span class="avatar" style="--disc:#7eb6ff">WL<img alt="" src="japan-itinerary-assets/family/wei-lih.jpg"/></span><p>Wei Lih</p></div>
+      </div>
+    </div>
+  </section>
+
   <section class="slate" id="days">
     <div class="wrap">
       <p class="eyebrow">Fifteen dated days</p>
@@ -182,7 +304,7 @@
 
     <section class="act" id="act-tokyo" data-act="tokyo">
       <div class="act-opener">
-        <div class="act-media" aria-hidden="true"><img src="japan-itinerary-assets/shibuya.jpg" alt="" width="1100" height="733"/></div>
+        <div class="act-media" aria-hidden="true"><img src="japan-itinerary-assets/shibuya.jpg" alt="" width="1100" height="733"/><video class="cut-video" autoplay muted loop playsinline preload="metadata" poster="japan-itinerary-assets/shibuya.jpg" src="japan-itinerary-assets/video/shibuya.mp4"></video></div>
         <p class="act-vert">Days 01 — 03</p>
         <div class="act-title">
           <p class="act-index">Act 01 · Arrival</p>
@@ -280,7 +402,7 @@
 
     <section class="act" id="act-nikko" data-act="nikko">
       <div class="act-opener">
-        <div class="act-media" aria-hidden="true"><img src="japan-itinerary-assets/nikko.jpg" alt="" width="1100" height="828" loading="lazy"/></div>
+        <div class="act-media" aria-hidden="true"><img src="japan-itinerary-assets/nikko.jpg" alt="" width="1100" height="828" loading="lazy"/><video class="cut-video" autoplay muted loop playsinline preload="metadata" poster="japan-itinerary-assets/maple.jpg" src="japan-itinerary-assets/video/maple.mp4"></video></div>
         <p class="act-vert">Days 04 — 06</p>
         <div class="act-title">
           <p class="act-index">Act 02 · Cedars &amp; gates</p>
@@ -383,7 +505,7 @@
 
     <section class="act" id="act-nagano" data-act="nagano">
       <div class="act-opener">
-        <div class="act-media" aria-hidden="true"><img src="japan-itinerary-assets/nagano.jpg" alt="" width="1100" height="733" loading="lazy"/></div>
+        <div class="act-media" aria-hidden="true"><img src="japan-itinerary-assets/nagano.jpg" alt="" width="1100" height="733" loading="lazy"/><video class="cut-video" autoplay muted loop playsinline preload="metadata" poster="japan-itinerary-assets/nagano.jpg" src="japan-itinerary-assets/video/autumn-ridge.mp4"></video></div>
         <p class="act-vert">Day 07</p>
         <div class="act-title">
           <p class="act-index">Act 03 · Ryokan night</p>
@@ -426,7 +548,7 @@
 
     <section class="act" id="act-alpine" data-act="alpine">
       <div class="act-opener">
-        <div class="act-media" aria-hidden="true"><img src="japan-itinerary-assets/kamikochi.jpg" alt="" width="1100" height="733" loading="lazy"/></div>
+        <div class="act-media" aria-hidden="true"><img src="japan-itinerary-assets/kamikochi.jpg" alt="" width="1100" height="733" loading="lazy"/><video class="cut-video" autoplay muted loop playsinline preload="metadata" poster="japan-itinerary-assets/kamikochi.jpg" src="japan-itinerary-assets/video/autumn-ridge.mp4"></video></div>
         <p class="act-vert">Days 08 — 09</p>
         <div class="act-title">
           <p class="act-index">Act 04 · Castle &amp; valley</p>
@@ -501,7 +623,7 @@
 
     <section class="act" id="act-fuji" data-act="fuji">
       <div class="act-opener">
-        <div class="act-media" aria-hidden="true"><img src="japan-itinerary-assets/fuji.jpg" alt="" width="1100" height="736" loading="lazy"/></div>
+        <div class="act-media" aria-hidden="true"><img src="japan-itinerary-assets/fuji.jpg" alt="" width="1100" height="736" loading="lazy"/><video class="cut-video" autoplay muted loop playsinline preload="metadata" poster="japan-itinerary-assets/fuji.jpg" src="japan-itinerary-assets/video/fuji.mp4"></video></div>
         <p class="act-vert">Days 10 — 11</p>
         <div class="act-title">
           <p class="act-index">Act 05 · The mountain</p>
@@ -649,7 +771,7 @@
 
     <section class="act" id="act-return" data-act="return">
       <div class="act-opener">
-        <div class="act-media" aria-hidden="true"><img src="japan-itinerary-assets/tokyo.jpg" alt="" width="1100" height="600" loading="lazy"/></div>
+        <div class="act-media" aria-hidden="true"><img src="japan-itinerary-assets/tokyo.jpg" alt="" width="1100" height="600" loading="lazy"/><video class="cut-video" autoplay muted loop playsinline preload="metadata" poster="japan-itinerary-assets/shibuya.jpg" src="japan-itinerary-assets/video/shibuya.mp4"></video></div>
         <p class="act-vert">Days 14 — 15</p>
         <div class="act-title">
           <p class="act-index">Act 07 · Return</p>
@@ -723,10 +845,12 @@
     <p><strong>Source:</strong> Edwin’s <em>260917_Autumn Japan Itinerary_Draft.xlsx</em> — green tabs <strong>Itinerary</strong> &amp; <strong>New Plan</strong>, plus <strong>Flight &amp; Car</strong> and Tokyo Planning / Goh Siblings WhatsApp facts.</p>
     <p>Gaps marked <span class="tbd">TBD</span>: flight numbers, Tokyo Airbnb street address, some dinners, final 11 Nov hotel, Bounce bag count. Confirm costs with Edwin.</p>
     <p>Weekdays verified for 2026: <strong>Thu 29 Oct</strong> → <strong>Thu 12 Nov</strong>. Prepared for Eddie Goh · Goh family · Oct 2026 MYT.</p>
-    <p><strong>Photo credits (Wikimedia Commons):</strong> Shinjuku skyline; Shibuya Crossing; Nikkō Tōshō-gū Yōmeimon; Kegon Falls; Matsumoto Castle; Kamikōchi Kappa Bridge; Mt Fuji / Kawaguchiko; Chūreito Pagoda; Jōgasaki Coast; Togakushi Okusha; Zenkō-ji; momiji leaves. See <a href="japan-itinerary-assets/CREDITS.txt">japan-itinerary-assets/CREDITS.txt</a>.</p>
+    <p><strong>Photo, film, and music credits</strong> are in <a href="japan-itinerary-assets/CREDITS.txt">japan-itinerary-assets/CREDITS.txt</a>. Sound is PeriTune’s “Oboro” (shakuhachi and koto). It stays off until you tap <strong>Enter the trip</strong> or the Sound button.</p>
   </div>
 </footer>
 
+<audio id="score" loop preload="auto" src="japan-itinerary-assets/audio/oboro.mp3"></audio>
+<button class="sound-btn" id="soundBtn" type="button" aria-pressed="false">Sound off</button>
 <button class="scramble" id="scramble" type="button" title="Leia’s scramble: jump between teamLab, Edo Wonderland, Kamikōchi, Chūreito, and the capybara zoo">Scramble</button>
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
