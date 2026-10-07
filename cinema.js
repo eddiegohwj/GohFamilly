@@ -2,11 +2,19 @@
   const root = document.documentElement;
   const reduce = root.classList.contains("reduce");
 
-  const score = document.getElementById("score");
   const soundBtn = document.getElementById("soundBtn");
+  const tracks = [
+    document.getElementById("scorePunch"),
+    document.getElementById("scoreDrive"),
+    document.getElementById("scoreNight")
+  ].filter(Boolean);
+  const master = 0.3;
   let soundPref = null;
+  let soundOn = false;
+  let zone = 0;
+  let fadeHandle = 0;
   try { soundPref = localStorage.getItem("goh-koyo-sound"); } catch (e) {}
-  if (score) score.volume = 0.32;
+  tracks.forEach(function (el) { el.volume = 0; el.loop = true; });
 
   function paintSound(on) {
     if (!soundBtn) return;
@@ -14,20 +22,56 @@
     soundBtn.setAttribute("aria-pressed", on ? "true" : "false");
     soundBtn.textContent = on ? "Sound on" : "Sound off";
   }
-  function setSound(on) {
-    soundPref = on ? "on" : "off";
-    try { localStorage.setItem("goh-koyo-sound", soundPref); } catch (e) {}
-    paintSound(on);
-    if (!score) return;
-    if (on) {
-      const pending = score.play();
-      if (pending && pending.catch) pending.catch(function () { paintSound(false); });
-    } else {
-      score.pause();
+  function zoneForScroll() {
+    const max = root.scrollHeight - window.innerHeight;
+    const pct = max > 0 ? window.scrollY / max : 0;
+    if (pct < 0.34) return 0;
+    if (pct < 0.68) return 1;
+    return Math.min(2, tracks.length - 1);
+  }
+  function fadeTo(next) {
+    if (!tracks.length) return;
+    next = Math.max(0, Math.min(tracks.length - 1, next));
+    if (!soundOn) { zone = next; return; }
+    if (next === zone && !tracks[next].paused) return;
+    const outgoing = tracks[zone];
+    zone = next;
+    const incoming = tracks[next];
+    const pending = incoming.play();
+    if (pending && pending.catch) {
+      pending.catch(function () {
+        soundOn = false;
+        paintSound(false);
+      });
     }
+    const start = performance.now();
+    if (fadeHandle) cancelAnimationFrame(fadeHandle);
+    function step(now) {
+      const t = Math.min(1, (now - start) / 1100);
+      if (soundOn) incoming.volume = master * t;
+      if (outgoing && outgoing !== incoming) outgoing.volume = master * (1 - t);
+      if (t < 1 && soundOn) fadeHandle = requestAnimationFrame(step);
+      else if (outgoing && outgoing !== incoming) {
+        outgoing.pause();
+        outgoing.volume = 0;
+      }
+    }
+    fadeHandle = requestAnimationFrame(step);
+  }
+  function setSound(on) {
+    soundOn = !!on;
+    soundPref = soundOn ? "on" : "off";
+    try { localStorage.setItem("goh-koyo-sound", soundPref); } catch (e) {}
+    paintSound(soundOn);
+    if (!soundOn) {
+      if (fadeHandle) cancelAnimationFrame(fadeHandle);
+      tracks.forEach(function (el) { el.pause(); el.volume = 0; });
+      return;
+    }
+    fadeTo(zoneForScroll());
   }
   paintSound(false);
-  if (soundBtn) soundBtn.addEventListener("click", function () { setSound(soundPref !== "on"); });
+  if (soundBtn) soundBtn.addEventListener("click", function () { setSound(!soundOn); });
 
   const intro = document.getElementById("intro");
   function dismissIntro() {
@@ -149,6 +193,7 @@
   let lastCurrent = null;
 
   function onScroll() {
+    if (soundOn) fadeTo(zoneForScroll());
     const max = root.scrollHeight - window.innerHeight;
     const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
     if (fill) fill.style.width = Math.min(100, Math.max(0, pct)) + "%";
