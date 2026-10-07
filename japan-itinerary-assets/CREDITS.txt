@@ -11,33 +11,35 @@ maple.jpg: Wikimedia Commons — Momiji (Japanese maple) leaves in Ryoan-ji, Kyo
 togakushi.jpg: Wikimedia Commons — Togakushi Shrine Okusha Oo-Torii.jpg (Togakushi Shrine)
 nagano.jpg: Wikimedia Commons — Zenkoji-Nagano.JPG (Zenkō-ji, Nagano)
 
-Film and music (added for the Kōyō Syndrome page). All clips are trimmed, scaled to 960px, and re-encoded. Video files have no audio track. They are background atmosphere only — not a change to the itinerary.
+Film and music (added for 相亲相爱一家人). All clips are trimmed, scaled to 960px, and re-encoded. Video files have no audio track. They are background atmosphere only — not a change to the itinerary.
 
-Music (three original Kevin MacLeod tracks, not anime openings). They crossfade as you scroll: opening, mid-trip, then city night. Each loops. Adapted to 96 kbps MP3 with a short fade in and fade out so the loop does not click.
+Music (three Kevin MacLeod tracks, CC BY 4.0). Warm, wholesome family music — ukulele, piano, guitar, and soft strings — not the earlier hyper/neon set (Mega Hyper Ultrastorm, Show Your Moves, Neon Laser Horizon) and not the quirky Daily Beetle cue, which are no longer used. They crossfade as you scroll: opening, mid-trip, then a softer last third. Each loops. Adapted to 96 kbps MP3 with a short fade in and fade out so the loop does not click.
 
-audio/mega-hyper-ultrastorm.mp3
-  Kevin MacLeod — “Mega Hyper Ultrastorm” (about 3:13, 220 BPM).
-  Synths and drums. Action, bouncy. Plays at the top of the page.
+Sound defaults on. The preference is stored as localStorage key goh-koyo-sound-v2. A missing key means Sound on; the older key goh-koyo-sound is ignored so a previous mute does not stick. Browsers still require one user gesture before audio can play. That gesture is Enter the trip (or Enter, or the Sound button). The title card stays up until that tap. The button reads “Sound on” on a first visit. Only an explicit Sound off writes a mute.
+
+audio/carefree.mp3
+  Kevin MacLeod — “Carefree” (about 3:25, 96 BPM).
+  Ukulele, guitar, marimba, glockenspiel, percussion. Bouncy, bright, calming. Plays at the top of the page.
   https://incompetech.com/music/royalty-free/music.html
-  ISRC USUAN1700003
+  ISRC USUAN1400037
   License: CC BY 4.0. https://creativecommons.org/licenses/by/4.0/
-  Music: Mega Hyper Ultrastorm by Kevin MacLeod (incompetech.com)
+  Music: Carefree by Kevin MacLeod (incompetech.com)
   Licensed under Creative Commons: By Attribution 4.0
 
-audio/show-your-moves.mp3
-  Kevin MacLeod — “Show Your Moves” (about 3:35, 136 BPM).
-  Synths and percussion, bright melody over a bass drum. Plays through the middle of the trip.
-  ISRC USUAN1100751
+audio/autumn-day.mp3
+  Kevin MacLeod — “Autumn Day” (about 3:05, 126 BPM).
+  Guitar, bass, piano, strings, simplified percussion. Calm and comforting. Plays through the middle of the trip.
+  ISRC USUAN1100765
   License: CC BY 4.0. https://creativecommons.org/licenses/by/4.0/
-  Music: Show Your Moves by Kevin MacLeod (incompetech.com)
+  Music: Autumn Day by Kevin MacLeod (incompetech.com)
   Licensed under Creative Commons: By Attribution 4.0
 
-audio/neon-laser-horizon.mp3
-  Kevin MacLeod — “Neon Laser Horizon” (about 2:59, 160 BPM).
-  Bright synths, no drum assault. Plays on the last third of the scroll (city night).
-  Album note on the source file: Project 80s. ISRC USUAN2000023
+audio/life-of-riley.mp3
+  Kevin MacLeod — “Life of Riley” (about 3:55, 102 BPM).
+  Glockenspiel, ukulele, guitar, percussion. Bright, relaxed. Plays on the last third of the scroll.
+  ISRC USUAN1400054
   License: CC BY 4.0. https://creativecommons.org/licenses/by/4.0/
-  Music: Neon Laser Horizon by Kevin MacLeod (incompetech.com)
+  Music: Life of Riley by Kevin MacLeod (incompetech.com)
   Licensed under Creative Commons: By Attribution 4.0
 
 video/shibuya.mp4
@@ -69,8 +71,9 @@ video/fuji.mp4
 Izu stays on the Jōgasaki still. No coastal clip was added.
 
 family/
-  Placeholder discs (initials) until a real photo is dropped in as family/<name>.jpg
-  (edwin, pf, eva, ethan, eddie, bee, jinee, yan-yan, mum, leia, terence, papa, jin, wei-lih).
+  Named discs are initials only. The page does not request family/<name>.jpg
+  (edwin, pf, eva, ethan, eddie, bee, jinee, yan-yan, mum, leia, terence, papa, jin, wei-lih)
+  until that portrait file exists and is placed on the disc.
 
 family/toddler-girl.jpg, family/dog.jpg, family/baby-stroller.jpg
   Goh family WhatsApp photos, Jul–Aug 2026, used with Eddie’s permission.

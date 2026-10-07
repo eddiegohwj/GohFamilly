@@ -12,8 +12,9 @@
   --nav: 62px;
   --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
   --display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
-  --sans: "Outfit", "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif;
+  --sans: "Outfit", "Segoe UI", "Hiragino Sans", "Noto Sans SC", "Noto Sans JP", sans-serif;
   --jp: "Noto Sans JP", "Hiragino Sans", sans-serif;
+  --zh: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", "Noto Sans JP", sans-serif;
   color-scheme: dark;
 }
 
@@ -89,12 +90,13 @@ button, a { -webkit-tap-highlight-color: transparent; }
   flex: 0 0 auto;
   color: var(--ink);
   text-decoration: none;
-  font-family: var(--display);
-  font-weight: 800;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  font-size: 1.35rem;
-  line-height: 1;
+  font-family: var(--zh);
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: none;
+  font-size: 1.05rem;
+  line-height: 1.2;
+  white-space: nowrap;
 }
 #tocNav {
   display: flex;
@@ -207,40 +209,15 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 .display {
   margin: 0;
-  font-family: var(--display);
-  font-weight: 800;
-  font-size: clamp(4.4rem, 16vw, 11.5rem);
-  line-height: .78;
-  letter-spacing: -.045em;
-  text-transform: uppercase;
+  font-family: var(--zh);
+  font-weight: 900;
+  font-size: clamp(2.5rem, 8vw, 5.6rem);
+  line-height: 1.2;
+  letter-spacing: .04em;
+  text-transform: none;
   text-shadow: 0 10px 40px rgba(0, 0, 0, .45);
 }
-.display .jp {
-  display: block;
-  font-family: var(--jp);
-  font-weight: 900;
-  font-size: .18em;
-  letter-spacing: .42em;
-  text-transform: none;
-  margin-bottom: .35em;
-  text-shadow: none;
-  color: var(--neon);
-}
-.syndrome {
-  position: relative;
-  display: inline-block;
-  color: var(--ink);
-}
-.syndrome::before,
-.syndrome::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  top: 0;
-  pointer-events: none;
-}
-.syndrome::before { color: var(--mag); transform: translate(-4px, 0); opacity: .85; }
-.syndrome::after { color: var(--neon); transform: translate(4px, 0); opacity: .8; }
+.app-name { font-weight: 900; }
 .lede {
   max-width: 40rem;
   margin: 1rem 0 0;
@@ -350,12 +327,12 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 .intro-title {
   margin-top: .6rem !important;
-  font-family: var(--display);
-  font-weight: 800;
-  font-size: clamp(3.2rem, 12vw, 8rem);
-  line-height: .8;
-  letter-spacing: -.04em;
-  text-transform: uppercase;
+  font-family: var(--zh);
+  font-weight: 900;
+  font-size: clamp(2.2rem, 7vw, 4.4rem);
+  line-height: 1.25;
+  letter-spacing: .06em;
+  text-transform: none;
 }
 .intro button {
   margin-top: 1.4rem;
@@ -782,7 +759,7 @@ body.glitch::after {
   position: fixed;
   left: 1rem;
   bottom: 1rem;
-  z-index: 110;
+  z-index: 320;
   border: 1px solid var(--gold);
   cursor: pointer;
   background: rgba(7, 6, 11, .88);
@@ -994,7 +971,9 @@ body.glitch::after {
 @media (max-width: 640px) {
   .timeline li { grid-template-columns: 1fr; gap: .15rem; }
   .pane-label { display: none; }
-  .display { font-size: clamp(3.5rem, 20vw, 5.5rem); }
+  .display { font-size: clamp(1.65rem, 7.6vw, 2.5rem); }
+  .intro-title { font-size: clamp(1.7rem, 8vw, 2.5rem); }
+  .brand { font-size: .92rem; }
   .hero-copy { margin-bottom: 3.6rem; }
   .day-still img { height: 52vw; min-height: 200px; }
 }
@@ -1004,7 +983,6 @@ body.glitch::after {
   .intro { display: none; }
   .marquee-track { animation: none; flex-wrap: wrap; width: auto; }
   .marquee-track p[aria-hidden="true"] { display: none; }
-  .syndrome::before, .syndrome::after { content: none; }
   .act-media img, .act-media video, .act-title, .cut-line, .day-still img { animation: none !important; transform: none !important; clip-path: none !important; }
   video { display: none !important; }
   .scramble:hover, .sound-btn:hover { transform: none; }
@@ -1012,9 +990,6 @@ body.glitch::after {
 .reduce video { display: none !important; }
 .reduce .marquee-track { animation: none; flex-wrap: wrap; width: auto; }
 .reduce .marquee-track p[aria-hidden="true"] { display: none; }
-.reduce .syndrome::before,
-.reduce .syndrome::after { content: none; }
-
 @media print {
   .topbar, .scramble, .sound-btn, .intro, .marquee, .scroll-cue, .sprocket, .stamp, .hero-slash, video { display: none !important; }
   body { background: #fff; color: #16120e; font-size: 11pt; }

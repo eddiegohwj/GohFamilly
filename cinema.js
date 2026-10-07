@@ -14,7 +14,12 @@
   let zone = 0;
   let fadingTo = -1;
   let fadeHandle = 0;
-  try { soundPref = localStorage.getItem("goh-koyo-sound"); } catch (e) {}
+  // Fresh visits have no goh-koyo-sound-v2 key and default to Sound on.
+  // The previous key (goh-koyo-sound) is never read, so an old mute does not stick.
+  // Browsers still need one gesture — Enter the trip, Enter, or the Sound button —
+  // before playback can start. Missing key must never be treated as muted.
+  const SOUND_KEY = "goh-koyo-sound-v2";
+  try { soundPref = localStorage.getItem(SOUND_KEY); } catch (e) {}
   tracks.forEach(function (el) { el.volume = 0; el.loop = true; });
 
   function paintSound(on) {
@@ -71,7 +76,7 @@
   function setSound(on) {
     soundOn = !!on;
     soundPref = soundOn ? "on" : "off";
-    try { localStorage.setItem("goh-koyo-sound", soundPref); } catch (e) {}
+    try { localStorage.setItem(SOUND_KEY, soundPref); } catch (e) {}
     paintSound(soundOn);
     if (!soundOn) {
       if (fadeHandle) clearInterval(fadeHandle);
