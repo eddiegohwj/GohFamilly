@@ -71,6 +71,20 @@
       v.removeAttribute("autoplay");
     }
   });
+  if (!reduce && "IntersectionObserver" in window) {
+    const cuts = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        const v = entry.target;
+        if (entry.isIntersecting) {
+          const pending = v.play();
+          if (pending && pending.catch) pending.catch(function () {});
+        } else {
+          v.pause();
+        }
+      });
+    }, { threshold: 0.35 });
+    document.querySelectorAll("video").forEach(function (v) { cuts.observe(v); });
+  }
 
   document.querySelectorAll(".avatar img").forEach(function (img) {
     function show() { img.classList.add("is-in"); }
