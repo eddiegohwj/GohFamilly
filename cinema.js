@@ -47,7 +47,7 @@
       pending.catch(function () {
         soundOn = false;
         fadingTo = -1;
-        paintSound(false);
+        paintSound(soundPref !== "off");
       });
     }
     const start = Date.now();
@@ -81,8 +81,15 @@
     }
     fadeTo(zoneForScroll());
   }
-  paintSound(false);
-  if (soundBtn) soundBtn.addEventListener("click", function () { setSound(!soundOn); });
+  function wantsSound() { return soundPref !== "off"; }
+  paintSound(wantsSound());
+  if (soundBtn) {
+    soundBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      if (!soundOn && wantsSound()) setSound(true);
+      else setSound(!soundOn);
+    });
+  }
 
   const intro = document.getElementById("intro");
   function dismissIntro() {
@@ -102,19 +109,27 @@
     }
     intro.addEventListener("click", function (e) {
       if (e.target.closest && e.target.closest("#enterTrip")) return;
+      if (wantsSound()) setSound(true);
       dismissIntro();
     });
-    window.setTimeout(dismissIntro, 2200);
     document.addEventListener("keydown", function (e) {
       if (!intro || intro.dataset.done) return;
-      if (e.key === "Escape") dismissIntro();
-      if (e.key === "Enter") {
-        if (soundPref !== "off") setSound(true);
-        dismissIntro();
-      }
+      if (e.key !== "Escape" && e.key !== "Enter") return;
+      if (wantsSound()) setSound(true);
+      dismissIntro();
     });
   } else if (intro) {
     intro.remove();
+    if (wantsSound()) {
+      const startOnGesture = function (e) {
+        if (e.target && e.target.closest && e.target.closest("#soundBtn")) return;
+        document.removeEventListener("pointerdown", startOnGesture, true);
+        document.removeEventListener("keydown", startOnGesture, true);
+        if (wantsSound() && !soundOn) setSound(true);
+      };
+      document.addEventListener("pointerdown", startOnGesture, true);
+      document.addEventListener("keydown", startOnGesture, true);
+    }
   }
 
   document.querySelectorAll("video").forEach(function (v) {
