@@ -52,3 +52,7 @@ Izu stays on the Jōgasaki still. No coastal clip was added.
 family/
   Placeholder discs (initials) until a real photo is dropped in as family/<name>.jpg
   (edwin, pf, eva, ethan, eddie, bee, jinee, yan-yan, mum, leia, terence, papa, jin, wei-lih).
+
+family/toddler-girl.jpg, family/dog.jpg, family/baby-stroller.jpg
+  Goh family WhatsApp photos, Jul–Aug 2026, used with Eddie’s permission.
+  Not assigned to a todo person-in-charge. Todo portraits stay initials.
